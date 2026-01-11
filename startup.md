@@ -4,9 +4,9 @@
 - Power up the confidence monitor (big tv above door)
 - Power up the [presentaion computer](/presentation/)
 - Open NDI Screen Capture
-- Open presenter
+- Open Presenter
 - Power up the [broadcast computer](/broadcast.md/)
-- Open OBS
 - Power up the cameras
 - Distribute pastor's mic pack
 - Distribute handheld mics
+

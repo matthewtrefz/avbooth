@@ -1,12 +1,12 @@
 
 # Broadcast On
-- Power on the Streaming PC
+- Power on the Broadcast PC
 - From the task bar start OBS
 
 # Broadcast Off
-- Close all open apps on the Streaming PC
+- Close all open apps on the Broadcast PC
 - Power off the cameras
-- Shut down the Presentor PC through the Start menu.
+- Shut down the Broadcast PC through the Start menu.
     - Start menu
     - Press the Power button
     - Press Shutdown from the pop up menu
