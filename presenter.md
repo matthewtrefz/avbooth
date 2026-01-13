@@ -4,6 +4,7 @@ Cues are the steps within the service. The slides hold the content of the cue, s
 
 ## Running a serivce
 - Select a service from the Services list
+- With the mouse select the first cue in the list on the left
 - Moving through the slides
 -- down arrow move to next cue
 -- up arrow move to previous cue
@@ -14,16 +15,16 @@ Cues are the steps within the service. The slides hold the content of the cue, s
 We display a countdown to the start of the 11:11 service on the main screen and confidence monitor. This helps keep the service starting on time.
 
 Show the Countdowmn
-- Presenter main menu select More > Countdown (or push F6 on the keyboard)
-- Select the 11:11 template if it not slected already
+- Press F6, or from the top menu select More > Countdown
+- From the Template dropdown select **11:11 Countdown**
 - Push the Start button at the bottom of the dialog.
 - Close the dialog.
 
 The countdown will remove itself from the screen at 11:11.
 
 ## Configure Screens
-- Select Configure from the screen menu in the top right corner
-- Select Screen Configuration Form the Advanced menu
+- Select Configure from the screen menu in the top right corner (looks like a monitor)
+- Select Screen Configuration from the Advanced menu
 
 Display types
 1. Main Audience Output
@@ -39,11 +40,13 @@ Assign to projector
 ### Stage Display
 Assign to confidence monitor (large tv)
 - Select Stage Display from the display menu
-- Select Display 2 (should be confidence monitor)
+- Select Display 1 (should be confidence monitor)
 - Press Save 
 
 ### broadcast
 Assign to broadcast computer (streaming)
 - Select broadcast from the display menu
-- Select Display 1 (should be monitor on right)
+- Select Display 2 (should be monitor on right)
 - Press Save 
+
+To exit the screen configuration, press a cue form the list on the left of the screen.

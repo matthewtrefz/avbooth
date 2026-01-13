@@ -1,10 +1,12 @@
 # Presentation On
 - Power on the Prensentation PC
-- Power on the Projector with its labeled remote
+- Power on the Projector with its remote
 - Power on the TV with its remote
-- On the Presentation PC enter the 4 digit code **6580**. If an input box does not appear shake the mouse, or press the sapce bar.
+- Enter the 4 digit PIN **6580**. If an input box does not appear shake the mouse, or press the space bar.
 - Start the apps from the taskbar.
-    - Presenter *Presenter may ask to login* **provide a generic login**
+    - Presenter *Presenter may ask to login*
+    -- av@allshedpherds.org
+    -- JesusLovesMe&You
     - Open NDI Screen Capture
 
 # Presentation Off
