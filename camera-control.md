@@ -27,7 +27,18 @@ Select a camera with a single click on the camera name.
 Once a camera is selcted its position can be controlled with the Position prests or the manual control.
 
 ### Position Presets
+The preset list is almost identical for each of the cameras. The most used presets are at the top of the list. Double click on the preset to move the camera.
 
+- alter (back, front, wide)
+- baptimal font
+- pulpit
+- choir
+- soloist
+- piano
+- praiseband (front, wide, lead)
+- communion
+- prayer station
+- congregation
 
 
 [1]: #open-multiview
