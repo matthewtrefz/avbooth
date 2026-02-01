@@ -1,0 +1,2 @@
+
+pandoc -s --metadata title="AV Instructions" --toc -f markdown -t pdf -o ../out/instruction.pdf startup.md audio.md presentation.md presenter.md broadcast.md obs.md streaming.md camera-control.md streamdeck.md shutdown.md
