@@ -61,7 +61,7 @@
 |Group|Label|
 |---:|---|
 |1|Praise Vocals|
-|2|Prasie Insturments|
+|2|Praise Instruments|
 |3|Floor Pocket mics|
 |4| - |
 |5|Gathering Space Speakers|

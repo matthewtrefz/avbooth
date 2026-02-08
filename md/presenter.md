@@ -1,6 +1,9 @@
 # Presenter
-Presenter is made by Worship Tools. Presenter is used to display readings, lyrics, and videos for the worship services. A service is a collection of cues. A cue is a collection of slides. 
-Cues are the steps within the service. The slides hold the content of the cue, such as hymns, and readings.
+Presenter, by Worship Tools, is used to display readings, lyrics, and videos for the worship services. 
+
+**Service** - collection of cues. 
+**Cue** - collection of slides. Cues are the steps within the service. 
+**Slides/Songs** - content to display such as hymns, images, and readings.
 
 ## Running a serivce
 - Select a service from the Services list
@@ -21,28 +24,3 @@ We display a countdown to the start of the 11:11 service on the main screen and 
 - Close the dialog.
 
 The countdown will remove itself from the screen at 11:11.
-
-## Configure Screens
-- Select **Configure** from the screen menu in the top right corner (looks like a monitor)
-- Select **Screen Configuration** from the Advanced menu
-
-### Main Audience Output
-Assign to projector
-- Select Main Audience Output from the display menu
-- Select Display 3 (should be projector)
-- Press Save
-
-### Stage Display
-Assign to confidence monitor (large tv)
-- Select Stage Display from the display menu
-- Select Display 1 (should be confidence monitor)
-- Press Save 
-
-### broadcast
-Assign to broadcast computer (streaming)
-- Select broadcast from the display menu
-- Select Display 2 (should be monitor on right)
-- Press Save 
-
-### Exit Screen Configuration
-To exit the screen configuration, press a cue from the list on the left of the screen. Then you will see the content appear on the displays.
