@@ -1,13 +1,30 @@
 # AV System Operations Guide
 
+```{=latex}
+\pagenumbering{gobble}
+```
+
 This guide is the single runbook for operating the AV system for a service.
 
 Use this order every time:
+
 1. Pre-Service Setup (Startup)
 2. During Service (Running)
 3. Post-Service Teardown (Shutdown)
 
----
+<!-- TOC-START -->
+
+```{=latex}
+\newpage
+	\tableofcontents
+\newpage
+```
+<!-- TOC-END -->
+
+```{=latex}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+```
 
 ## 1) Pre-Service Setup (Startup)
 
@@ -112,6 +129,8 @@ Use this order every time:
 
 ---
 
+\newpage
+
 ## 2) During Service (Running)
 
 ### 2.1 Presenter Operation
@@ -189,6 +208,8 @@ Use this order every time:
 
 ---
 
+\newpage
+
 ## 3) Post-Service Teardown (Shutdown)
 
 ### 3.1 Microphones and Immediate Wrap-Up
@@ -236,6 +257,8 @@ Use this order every time:
 
 ---
 
+\newpage
+
 ## 4) Quick Troubleshooting
 
 ### No projector or confidence monitor output
@@ -254,6 +277,8 @@ Use this order every time:
 - Confirm network connection and OBS stream controls.
 
 ---
+
+\newpage
 
 ## 5) Pre-Flight Checklist (Fast Version)
 

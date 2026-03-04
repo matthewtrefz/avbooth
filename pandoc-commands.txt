@@ -1,2 +1,13 @@
+pandoc md/av-system-guide.md \
+	--standalone \
+	--from markdown \
+	--to pdf \
+	--pdf-engine=xelatex \
+	--metadata title="AV System Operations Guide" \
+	--resource-path="md;assets" \
+	-V geometry:paperwidth=5.5in,paperheight=8.5in,top=0.45in,bottom=0.65in,left=0.4in,right=0.4in,includefoot \
+	-V fontsize=10pt \
+	-o out/av-system-guide.pdf
 
-pandoc -s --metadata title="AV Instructions" --toc -f markdown -t pdf -o ../out/instruction.pdf startup.md audio.md presentation.md presenter.md broadcast.md obs.md streaming.md camera-control.md streamdeck.md shutdown.md
+# Variant without TOC (cleaner quick-print version)
+powershell -ExecutionPolicy Bypass -File ./build-print.ps1 -NoToc
