@@ -15,6 +15,7 @@ Use this order every time:
 <!-- TOC-START -->
 
 ```{=latex}
+\hypersetup{linktoc=all}
 \newpage
 	\tableofcontents
 \newpage
