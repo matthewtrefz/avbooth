@@ -41,8 +41,8 @@
 |1|Presentation PC|Local 1|
 |2|Device|Local 2|
 |3|Audience SR|Local 3|
-|4|-|||
-|5|-|||
+|4|Mobile|Local 4|
+|5|CD|Aux 5|
 |6|CD|Aux 6|
 
 ## DCA
