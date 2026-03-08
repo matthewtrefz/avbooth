@@ -2,11 +2,11 @@
 ## Channels
 | Channel | Input | AES Input | wireless | 48V |
 | ---: | --- | --- | :---: | ---|
-|1|Yellow|B5|x||
-|2|Blue|B2|x||
-|3|Green|B3|x||
-|4|Red|B4|x||
-|5|White|A5|||
+|1|Praise Vocal 1 Yellow|B5|x||
+|2|Praise Vocal 2 Blue|B2|x||
+|3|Praise Vocal 3 Green|B3|x||
+|4|Praise Vocal 4 Red|B4|x||
+|5|Praise Vocal 5 White|A5|||
 |6|Keys|A6|||
 |7|Electric Guitar|A7|||
 |8|Accoustic Guitar|A8|||
@@ -15,21 +15,21 @@
 |11|SL Drums|A11|||
 |12|SR Drums|A12|||
 |13|Cajon|A13|||
-|14|Drum Vocal|A14|||
-|15|Vocal 7|A15|||
+|14|Praise Vocal 6|A14|||
+|15|Praise Vocal 7|A15|||
 |16|Grand Piano|B16|||
-|17|Yellow FLoor|B9|||
-|18|Blue FLoor|B10|||
-|19|Green FLoor|B11|||
-|20|Red FLoor|B12|||
-|21|Brown|B7|x|||
-|22|Silver|B8|x|||
+|17|Floor 1 Yellow|B9|||
+|18|Floor 2 Blue |B10|||
+|19|Floor 3 Green |B11|||
+|20|Floor 4 Red |B12|||
+|21|Pastor 1 Brown|B7|x|||
+|22|Pastor 2 Silver|B8|x|||
 |23|Purple|B5|x||
 |24|Orange|B6|x||
 |25|Pulpit|A15||x|
-|26|SR Choir|B13||x|
-|27|SC Choir|B14||x|
-|28|SL Choir|B15||x|
+|26|Choir SR|B13||x|
+|27|Choir SC|B14||x|
+|28|Choir SL|B15||x|
 |29|-|-|||
 |30|-|-|||
 |31|Audience SR|Aux2-Local3||x|

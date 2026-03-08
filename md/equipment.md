@@ -5,10 +5,11 @@ Behringer X32 1
 Behringer P16-M 9
 xvive U45 In-Ear Monitor Wireless System transmitter 6
 xvive U45 In-Ear Monitor Wireless System receviers 12 
+xvive U2 Wireless Guitar transmitter & Reciever
 JBL CBT-1000 (Sanctuary) 2  
 JBL CBT50LA-1 (Narthex and Choir) 4
 Crown XTi 6002, 2100W, 2CH Amplifier (Sanctuary) 1 
-Crown XT1 1002, 500W, 2CH Amplifier (Narthex and Choir) 1
+Crown XT1 1002, 500W, 2CH Amplifier (Gathering and Choir) 1
 Behringer SD16 1  
 Behringer SD8 2 
 Shure SLXD24/B87 6  
