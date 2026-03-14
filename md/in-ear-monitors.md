@@ -2,21 +2,21 @@
 
 ## P-16 Inputs
 
-| Channel | Input | Color | UltraNet Output
+| Channel | Label | Color | Source
 | ---:|---|---|
-|1|Praise Vocal 1|Yellow|CH01|
-|2|Praise Vocal 2|Blue|CH02|
-|3|Praise Vocal 3|Green|CH03|
-|4|Praise Vocal 1|Red|CH04|
-|5|Praise Vocal 5|White|CH05|
-|6|Keyboard||CH06|
-|7|E-Guitar||CH07|
-|8|A-Guiter||CH08|
-|9|Bass||CH09|
-|10|Kick Drum||CH10|
-|11|Drums SL||CH11|
-|12|Drums SR||CH12|
-|13|Pastor Mics||Bus 9|
-|14|House Mics||Bus 10|
-|15|Praise Vocal 6+7||Bus 11|
-|16|All Devices||Bus 12|
+|PM01|Praise Vocal 1|Yellow|CH01|
+|PM02|Praise Vocal 2|Blue|CH02|
+|PM03|Praise Vocal 3|Green|CH03|
+|PM04|Praise Vocal 1|Red|CH04|
+|PM05|Praise Vocal 5|White|CH05|
+|PM06|Keyboard||CH06|
+|PM07|E-Guitar||CH07|
+|PM08|A-Guiter||CH08|
+|PM09|Bass||CH09|
+|PM10|Kick Drum||CH10|
+|PM11|Drums SL + SR||BUS08|
+|PM12|Cajon||CH12|
+|PM13|Pastor Mics||BUS 09|
+|PM14|House Mics||BUS 10|
+|PM15|Praise Vocal 6+7||BUS 11|
+|PM16|All Devices||BUS 12|
