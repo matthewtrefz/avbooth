@@ -6,6 +6,9 @@ This table maps X32 channel source assignments to the three Behringer stageboxes
 - SD08 - Sacristy: B01-B08
 - SD08 - Choir Loft: B09-B16
 
+<!-- Diagram source: assets/sd-device-map.mmd -->
+<!-- To render: mmdc -i assets/sd-device-map.mmd -o assets/sd-device-map.png -w 1200 -->
+
 | Input | SD Device | Location | Connected Item (from board configuration) |
 |---|---|---|---|
 | A01 | SD16 | Stage | Unused |
