@@ -33,7 +33,7 @@
 |CH29|-|-|||
 |CH30|-|-|||
 |CH31|Audience SR|Aux2-Local3||x|
-|CH32|Audience SL|||x|
+|CH32|Audience SL|A14||x|
 
 ## Aux
 |Channel|Label|Source|
@@ -44,3 +44,5 @@
 |AX04|Mobile|LOC04|
 |AX05|CD|AUX05|
 |AX06|CD|AUX06|
+
+button 12 goes to graphic eq for the mains

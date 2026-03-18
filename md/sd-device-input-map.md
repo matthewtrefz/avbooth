@@ -8,7 +8,7 @@ This table maps X32 channel source assignments to the three Behringer stageboxes
 
 | Input | SD Device | Location | Connected Item (from board configuration) |
 |---|---|---|---|
-| A01 | SD16 | Stage | Praise Vocal 7 |
+| A01 | SD16 | Stage | Unused |
 | A02 | SD16 | Stage | Unused |
 | A03 | SD16 | Stage | Unused |
 | A04 | SD16 | Stage | Unused |
@@ -21,9 +21,9 @@ This table maps X32 channel source assignments to the three Behringer stageboxes
 | A11 | SD16 | Stage | SL Drums |
 | A12 | SD16 | Stage | SR Drums |
 | A13 | SD16 | Stage | Cajon |
-| A14 | SD16 | Stage | Praise Vocal 6 |
+| A14 | SD16 | Stage | Audience SL |
 | A15 | SD16 | Stage | Pulpit |
-| A16 | SD16 | Stage | Unused |
+| A16 | SD16 | Stage | Praise Vocal 6 |
 | B01 | SD08 | Sacristy | Purple |
 | B02 | SD08 | Sacristy | Praise Vocal 2 Blue |
 | B03 | SD08 | Sacristy | Praise Vocal 3 Green |
@@ -40,5 +40,3 @@ This table maps X32 channel source assignments to the three Behringer stageboxes
 | B14 | SD08 | Choir Loft | Choir SC |
 | B15 | SD08 | Choir Loft | Choir SL |
 | B16 | SD08 | Choir Loft | Grand Piano |
-
-O

@@ -1,36 +1,35 @@
-# Equipment
+﻿# Equipment
 
-## Audio
-Behringer X32 1
-Behringer P16-M 9
-xvive U45 In-Ear Monitor Wireless System transmitter 6
-xvive U45 In-Ear Monitor Wireless System receviers 12 
-xvive U2 Wireless Guitar transmitter & Reciever
-JBL CBT-1000 (Sanctuary) 2  
-JBL CBT50LA-1 (Narthex and Choir) 4
-Crown XTi 6002, 2100W, 2CH Amplifier (Sanctuary) 1 
-Crown XT1 1002, 500W, 2CH Amplifier (Gathering and Choir) 1
-Behringer SD16 1  
-Behringer SD8 2 
-Shure SLXD24/B87 6  
-Shure SLXD14/MX153T 2 
-Shure UA844+SWB 2 
-Shure UA864US Wall Mount Antenna 2
-shure sm 58 4
-shure sm 57 3
-shure cvo 3
-Peavey USB-P USB Playback
-Radial USB-Pro 2-Channel Active Instrument Direct Box
-
-## Video
-PTZOptics 20X-NDI-GY - 20x Optical Zoom Lens Indoor NDI Camera - Gray 4
-acer 23.8” Full HD 1920 x 1080 IPS Zero Frame Home Office Computer Monitor 4
-PANASONIC PT-RZ970LBU7 projector 1
-EXTRON DTP HDMI 4K 230 TX
-screen Slate 1.2 165" Diagonal 16:9 Fixed ZPT165SL12-NA-VWNA-SU-NA S
-Samung QB98R 98" 4K display
-WAVLINK 4-Port HDMI Splitter, USB C to Quad Monitor 4K Adapter, Universal USB A to HDMI Extended Dual Triple Display for Windows, Mac M1/M2/M3/M4 Driver Required
-Beelink EQR6 Mini Desktop PC with AMD Ryzen 9 6900HX 8C/16T, 32GB DDR5 500GB NVMe M.2 SSD, Dual Display Output, Built in PSU, WiFi 6, 1000M RJ45, Bluetooth 5.2 W-11 Mini Computer
-Elgato Stream Deck Neo
-J-Tech Digital HDMI Extender over cat5e/6 1080P@200ft 
-SkyTech Blaze II Gaming Computer PC Desktop - Ryzen 5 3600 6-Core 3.6GHz, GTX 1660 Ti 6G, 500G SSD, 8GB DDR4 3000, RGB, AC WiFi, Windows 10 Home 64-bit
+| Item | Label | Type | Qty |
+|---|---|---|---|
+| Behringer X32 | X32 | Audio | 1 |
+| Behringer P16-M | P16 | Audio | 9 |
+| Behringer SD16 | SD16 | Audio | 1 |
+| Behringer SD8 | SD8 | Audio | 2 |
+| Xvive U45 In-Ear Monitor Wireless System Transmitter |  U45T | Audio | 6 |
+| Xvive U45 In-Ear Monitor Wireless System Receiver | U45R | Audio | 12 |
+| Xvive U2 Wireless Guitar Transmitter & Receiver | U2 | Audio | 1 |
+| JBL CBT-1000 (Sanctuary) | Main Speaker | Audio | 2 |
+| JBL CBT50LA-1 (Narthex and Choir) | Side Speaker | Audio | 4 |
+| Crown XTi 6002 2100W 2CH Amplifier (Sanctuary) | Crown 6002 | Audio | 1 |
+| Crown XTi 1002 500W 2CH Amplifier (Gathering and Choir) | Crown 1002 | Audio | 1 |
+| Shure SLXD24/B87 Wireless Vocal Microphone | B87 | Audio | 6 |
+| Shure SLXD14/MX153T Wireless Lavalier Microphone | MX153T | Audio | 2 |
+| Shure UA844+SWB Antenna/Power Distribution Unit | UA844 | Audio | 2 |
+| Shure UA864US Wall Mount Antenna | UA864US | Audio | 2 |
+| Shure SM58 | SM58 | Audio | 4 |
+| Shure SM57 | SM57 | Audio | 3 |
+| Shure CVO Overhead Condenser Microphone | CVO | Audio | 3 |
+| Peavey USB-P USB Playback Device | USBP | Audio | 1 |
+| Radial USB-Pro 2-Channel Active Instrument Direct Box | USBPro | Audio | 1 |
+| PTZOptics 20X-NDI-GY 20x Indoor NDI Camera | 20XNDI | Video | 4 |
+| Acer 23.8" Full HD 1920x1080 IPS Monitor | Monitor | Video | 4 |
+| Panasonic PT-RZ970LBU7 Projector |  | Video | 1 |
+| Extron DTP HDMI 4K 230 TX |  | Video | 1 |
+| Screen Innovations Slate 1.2 165" 16:9 Fixed Frame |  | Video | 1 |
+| Samsung QB98R 98" 4K Display |  | Video | 1 |
+| Wavlink USB-C to Quad Monitor 4K HDMI Adapter |  | Video | 1 |
+| Beelink EQR6 Mini PC (Ryzen 9 6900HX, 32GB, 500GB) |  | Video | 1 |
+| Elgato Stream Deck Neo |  | Video | 1 |
+| J-Tech Digital HDMI Extender over Cat5e/6 1080P@200ft |  | Video | 1 |
+| SkyTech Blaze II Gaming PC (Ryzen 5 3600, GTX 1660 Ti) |  | Video | 1 |
