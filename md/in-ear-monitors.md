@@ -16,7 +16,7 @@
 |PM10|Kick Drum||CH10|
 |PM11|Drums SL + SR||BUS08|
 |PM12|Cajon||CH12|
-|PM13|Pastor Mics||BUS 09|
-|PM14|House Mics||BUS 10|
-|PM15|Praise Vocal 6+7||BUS 11|
-|PM16|All Devices||BUS 12|
+|PM13|Pastor Mics||BUS09|
+|PM14|House Mics||BUS10|
+|PM15|Praise Vocal 6+7||BUS11|
+|PM16|All Devices||BUS12|

@@ -1,9 +1,9 @@
 ## Mute Groups
 |Group|Label|
 |---:|---|
-|1|Praise Vocals|
-|2|Praise Instruments|
-|3|Floor Pocket mics|
-|4| - |
-|5|Gathering Space Speakers|
-|6|Choir Speakers|
+|MG01|Praise Vocals|
+|MG02|Praise Instruments|
+|MG03|Floor Pocket mics|
+|MG04| - |
+|MG05|Gathering Space Speakers|
+|MG06|Choir Speakers|

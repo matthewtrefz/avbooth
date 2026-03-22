@@ -1,11 +1,11 @@
 ## DCA
-|DCA|Input|Channel
-| ---: | --- |
-|DCA01|Pastor Craig|CH21
-|DCA02|Pastor Wendy|
-|DCA03|Purple|
-|DCA04|Orange|
-|DCA05|Pulpit|
-|DCA06|Projection|
-|DCA07|Choir|
-|DCA08|Device|
+| DCA | Label | Controls |
+|---|---|---|
+| DCA01 | Pastor Craig | CH21 |
+| DCA02 | Pastor Wendy | CH22 |
+| DCA03 | Purple | CH23 |
+| DCA04 | Orange | CH24 |
+| DCA05 | Pulpit | CH25 |
+| DCA06 | Projector | Presentation/projection audio |
+| DCA07 | Choir | CH26–CH28 |
+| DCA08 | Device | BUS12 |
