@@ -1,11 +1,11 @@
 ## DCA
-|Channel|Input|
+|DCA|Input|Channel
 | ---: | --- |
-|1|Pastor Craig|
-|2|Pastor Wendy|
-|3|Purple|
-|4|Orange|
-|5|Pulpit|
-|6|Projection|
-|7|Choir|
-|8|Device|
+|DCA01|Pastor Craig|CH21
+|DCA02|Pastor Wendy|
+|DCA03|Purple|
+|DCA04|Orange|
+|DCA05|Pulpit|
+|DCA06|Projection|
+|DCA07|Choir|
+|DCA08|Device|

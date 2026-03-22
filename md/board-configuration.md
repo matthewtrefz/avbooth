@@ -16,7 +16,7 @@
 |CH12|SR Drums|A12|||
 |CH13|Cajon|A13|||
 |CH14|Praise Vocal 6|A16|||
-|CH15|Praise Vocal 7|A05|||
+|CH15|_Praise Vocal 7_||||
 |CH16|Grand Piano|B16|||
 |CH17|Floor 1 Yellow|B09|||
 |CH18|Floor 2 Blue |B10|||
