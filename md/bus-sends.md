@@ -1,18 +1,20 @@
-#Bus Sends
-|BUS| Label | Channels|
-|BUS01| Choir| |
-|BUS02| Gathering||
-|BUS03| Streaming||
-|BUS04| Unused | No active sends |
-|BUS05| Unused | No active sends |
-|BUS06| Unused | No active sends |
-|BUS07| Unused | No active sends |
-|BUS08| Drum SL+SR | 11 12 13|
-|BUS09| Pastor's mics|21 22|
-|BUS10| Other mics| 17 18 19 20 23 24 25|
-|BUS11| Praise mics 6&7 | 14 15|
-|BUS12| All Devices | aux 1 2 4 5 6 7 8|
-|BUS13| Unused | No active sends |
-|BUS14| Unused | No active sends |
-|BUS15| Unused | No active sends |
-|BUS16| Unused | No active sends |
+# Bus Sends
+
+| BUS | Label | Channels |
+|---|---|---|
+| BUS 01 | Choir | |
+| BUS 02 | Gathering | |
+| BUS 03 | Streaming | |
+| BUS 04 | Unused | No active sends |
+| BUS 05 | Unused | No active sends |
+| BUS 06 | Unused | No active sends |
+| BUS 07 | Unused | No active sends |
+| BUS 08 | Drums SL+SR | CH 11, 12, 13 |
+| BUS 09 | Pastor Mics | CH 21, 22 |
+| BUS 10 | Other Mics | CH 17, 18, 19, 20, 23, 24, 25 |
+| BUS 11 | Praise Mics 6 & 7 | CH 14, 15 |
+| BUS 12 | All Devices | AUX 1, 2, 4, 5, 6, 7, 8 |
+| BUS 13 | Unused | No active sends |
+| BUS 14 | Unused | No active sends |
+| BUS 15 | Unused | No active sends |
+| BUS 16 | Unused | No active sends |

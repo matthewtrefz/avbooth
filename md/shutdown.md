@@ -9,7 +9,7 @@
 - Power off the [projector][9]
 - Shut down the [presentation computer][2]
 
-- Press the **VIEW** button in the **SCENCES** section of the sound board.
+- Press the **VIEW** button in the **SCENES** section of the sound board.
 - Select scence 07 named **Service**
 - Press the button label **GO**
 - Press the button labeled **Confirm**

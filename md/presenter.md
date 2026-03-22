@@ -17,7 +17,7 @@ Presenter, by Worship Tools, is used to display readings, lyrics, and videos for
 ## Countdown
 We display a countdown to the start of the 11:11 service on the main screen and confidence monitor. This helps keep the service starting on time.
 
-**Show the Countdowmn**
+**Show the Countdown**
 - Press F6, or from the top menu select More > Countdown
 - From the Template dropdown select **11:11 Countdown**
 - Push the Start button at the bottom of the dialog.

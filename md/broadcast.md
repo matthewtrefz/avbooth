@@ -19,14 +19,14 @@
 # Camera setup
 There are two ways to power the cameras on and off
 1. Use the **Stream Deck**
- - You should see two buttons one for power on and off.
- - Push the camera power on button
+ - You should see two buttons: one for power on and one for off.
+ - Push the camera power on button.
 2. Use the remote labeled Camera.
- - Point the remote at the cmaera and push the power button
- - repeat for each camera
+ - Point the remote at the camera and push the power button.
+ - Repeat for each camera.
 
 ## Camera Controls
-To change the position of a camera
-- Select a camera from the camera list
-- Double click on the posiiton in the position list and the camera will move to that position
+To change the position of a camera:
+- Select a camera from the camera list.
+- Double-click on the position in the position list and the camera will move to that position.
 

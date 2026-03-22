@@ -13,7 +13,7 @@
 ## Start Stream
 - Press the Manage Broadcast button
 - A modal will appear
-- Press the Select Existing Boradcast tab
+- Press the Select Existing Broadcast tab
 - Select the service to stream
 - Press the Select Broadcast button
 - Press the Start Streaming button

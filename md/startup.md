@@ -14,6 +14,8 @@
 - Distribute handheld mics. **Orange** to choir loft, **Purple** to mic stand by baptismal font, the other mics are used on the praise band stage
 - [Streaming Setup][8]
 
+[10]: /confidence.md "Confidence Monitor"
+
 [1]: /audio.md/ "Audio System"
 [2]: /presentation.md/ "Presentation Computer"
 [3]: /presenter.md/ "Presenter by Worship Tools"
