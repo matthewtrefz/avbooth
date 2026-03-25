@@ -143,8 +143,7 @@ Use DCAs for quick level adjustments without touching individual channel faders.
 | DCA 7 | Choir | Choir overhead microphones (CH26–28) |
 | DCA 8 | Device | All playback devices (BUS12) |
 
-> **Tip:** During a pastor's message, raise DCA 1 or DCA 2. During music, use the Praise Vocals
-> and Praise Instruments mute groups (see below) rather than individual faders.
+> **Tip:** During a pastor's message, raise DCA 1 or DCA 2. During music.
 
 ### Mute Groups
 
@@ -163,32 +162,6 @@ bottom-right corner of the X32 console.
 
 > **Note:** A lit mute button means that group **is muted** (silent). Press again to un-mute.
 
-#### Common Mute Group Scenarios
-
-**Before praise band starts (gathering music only):**
-- Ensure MG 1 and MG 2 are **un-muted**
-
-![Praise vocal mute group](../assets/x32-mute-group-praise-vocal.png){width=50%}
-
-**Gathering space only (suppress choir speakers during service):**
-- Press MG 6 (**Choir**) to mute choir loft speakers
-
-![Gathering mute group](../assets/x32-mute-group-gathering.png){width=50%}
-
-**Choir moment:**
-- Press MG 5 (**Gathering Space**) to focus audio to the choir area
-
-![Choir mute group](../assets/x32-mute-group-choir.png){width=50%}
-
-**Between sections (silence band, floor mics):**
-- Press MG 2 (**Praise Instruments**) to mute the band
-
-![Band mute group](../assets/x32-mute-group-band.png){width=50%}
-
-**Floor pocket mics (congregation readings/responses):**
-- Press MG 3 (**Floor Mics**) to un-mute when floor mics are needed
-
-![Floor mute group](../assets/x32-mute-group-floor.png){width=50%}
 
 ### Praise Band Channel Strips
 
@@ -213,7 +186,7 @@ The praise band occupies channels 1–13. Use the channel faders to balance indi
 
 ### In-Ear Monitors
 
-The nine **Behringer P16-M** personal monitor mixers are used by musicians on stage.
+The **Behringer P16-M** personal monitor mixers are used by musicians on stage.
 Each musician controls their own mix on their unit.
 
 The P16 receives its input signals from the X32 via an AES50 network connection.
