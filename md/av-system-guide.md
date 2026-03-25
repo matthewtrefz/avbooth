@@ -28,53 +28,6 @@ It is written for volunteers who operate the sound board, cameras, presentation,
 
 \newpage
 
-# Equipment Overview
-
-The table below lists every piece of equipment in the system with its label and role.
-Detailed operation for each item is covered in the sections that follow.
-
-## Audio Equipment
-
-| Item | Label | Role |
-|---|---|---|
-| Behringer X32 | X32 | Main digital audio mixing console |
-| Behringer SD16 | SD16 | 16-input stage box — Stage (A01–A16) |
-| Behringer SD8 (×2) | SD8 | 8-input stage boxes — Sacristy (B01–B08) and Choir Loft (B09–B16) |
-| Behringer P16-M (×9) | P16 | Personal in-ear monitor mixers for musicians |
-| Crown XTi 6002 Amplifier | Crown 6002 | Powers sanctuary main speakers |
-| Crown XTi 1002 Amplifier | Crown 1002 | Powers gathering space and choir speakers |
-| JBL CBT-1000 (×2) | Main Speaker | Sanctuary main speakers |
-| JBL CBT50LA-1 (×4) | Side Speaker | Narthex and choir speakers |
-| Shure SLXD24/B87 Wireless Vocal Mic (×6) | B87 | Handheld wireless vocal microphones |
-| Shure SLXD14/MX153T Wireless Lavalier (×2) | MX153T | Wireless clip-on microphones for pastors |
-| Shure UA844+SWB Antenna Distribution (×2) | UA844 | Distributes antenna signal for wireless mics |
-| Shure SM58 (×4) | SM58 | Wired vocal microphone |
-| Shure SM57 (×3) | SM57 | Wired instrument microphone |
-| Shure CVO Overhead Condenser (×3) | CVO | Overhead choir microphones |
-| Xvive U45 IEM Wireless Transmitter (×6) | U45T | Sends monitor mix to in-ear packs |
-| Xvive U45 IEM Wireless Receiver (×12) | U45R | Wireless in-ear monitor belt packs |
-| Xvive U2 Wireless Guitar System | U2 | Wireless guitar transmitter and receiver |
-| Peavey USB-P Playback Device | USBP | USB audio playback |
-| Radial USB-Pro Direct Box | USBPro | Stereo USB audio input |
-
-## Video Equipment
-
-| Item | Label | Role |
-|---|---|---|
-| PTZOptics 20X-NDI Camera (×4) | 20XNDI | Remote-controlled PTZ cameras over NDI |
-| Beelink EQR6 Mini PC | Presentation PC | Runs Presenter (slides) and NDI Screen Capture |
-| SkyTech Blaze II Gaming PC | Broadcast PC | Runs OBS for live streaming and camera switching |
-| Panasonic PT-RZ970LBU7 Projector | Projector | Projects slides to the main sanctuary screen |
-| Screen Innovations 165" Fixed Frame | Screen | Main projection screen in sanctuary |
-| Samsung QB98R 98" Display | Confidence Monitor | Stage confidence monitor above the back door |
-| Acer 23.8" Monitor (×4) | Monitor | Operator monitors |
-| Elgato Stream Deck Neo | Stream Deck | One-touch camera switching and overlay control |
-| J-Tech HDMI Extender | — | Extends HDMI signal over Cat6 cable |
-| Wavlink USB-C Quad Monitor Adapter | — | Drives multiple monitors from Presentation PC |
-| Extron DTP HDMI 4K 230 TX | — | Transmits HDMI signal to projector over Cat6 |
-
-\newpage
-
 # System Startup
 
 Follow these steps **in order** at the beginning of each service day.
@@ -158,15 +111,21 @@ See the [Streaming](#streaming) section to schedule and prepare the stream befor
 
 \newpage
 
-# Audio Operations
+# Service Operations
 
-## The X32 Console Sections
+This section covers audio mixing, camera control, presentation, and streaming operations during the service.
+
+\newpage
+
+## Audio Operations
+
+### The X32 Console Sections
 
 The top of the X32 has four main sections you will use during service:
 
 ![X32 top panel sections](../assets/x32-top-sections.png){width=90%}
 
-## DCA Faders
+### DCA Faders
 
 DCAs (Digitally Controlled Amplifiers) are master volume controls that groups multiple channels.
 Use DCAs for quick level adjustments without touching individual channel faders.
@@ -187,7 +146,7 @@ Use DCAs for quick level adjustments without touching individual channel faders.
 > **Tip:** During a pastor's message, raise DCA 1 or DCA 2. During music, use the Praise Vocals
 > and Praise Instruments mute groups (see below) rather than individual faders.
 
-## Mute Groups
+### Mute Groups
 
 Mute groups let you silence an entire section with a single button press. They are located in the
 bottom-right corner of the X32 console.
@@ -204,7 +163,7 @@ bottom-right corner of the X32 console.
 
 > **Note:** A lit mute button means that group **is muted** (silent). Press again to un-mute.
 
-### Common Mute Group Scenarios
+#### Common Mute Group Scenarios
 
 **Before praise band starts (gathering music only):**
 - Ensure MG 1 and MG 2 are **un-muted**
@@ -231,7 +190,7 @@ bottom-right corner of the X32 console.
 
 ![Floor mute group](../assets/x32-mute-group-floor.png){width=50%}
 
-## Praise Band Channel Strips
+### Praise Band Channel Strips
 
 The praise band occupies channels 1–13. Use the channel faders to balance individual instruments.
 
@@ -241,7 +200,7 @@ The praise band occupies channels 1–13. Use the channel faders to balance indi
 
 ![X32 piano channel](../assets/x32-piano.png){width=50%}
 
-## Adjusting Levels During Service
+### Adjusting Levels During Service
 
 | Situation | Action |
 |---|---|
@@ -252,7 +211,7 @@ The praise band occupies channels 1–13. Use the channel faders to balance indi
 | No audio from presentation/video | Check DCA 6 is raised; verify Presentation PC is sending audio |
 | Gathering space is too loud | Lower or mute MG 5 |
 
-## In-Ear Monitors
+### In-Ear Monitors
 
 The nine **Behringer P16-M** personal monitor mixers are used by musicians on stage.
 Each musician controls their own mix on their unit.
@@ -284,15 +243,15 @@ The channel mapping is:
 
 \newpage
 
-# Video & Camera Operations
+## Video & Camera Operations
 
-## OBS Layout
+### OBS Layout
 
 When OBS is open, you will see the main window with controls on the left and the multiview monitor on the right.
 
 ![OBS main layout](../assets/obs-layout.png){width=90%}
 
-## Multiview
+### Multiview
 
 The **Multiview** screen shows all four cameras at once on the right monitor.
 The active (live) camera is highlighted with a **red border**.
@@ -302,24 +261,24 @@ The active (live) camera is highlighted with a **red border**.
 **To switch the active camera:**
 Left-click the desired camera image in the Multiview window.
 
-### Open Multiview (if not visible)
+#### Open Multiview (if not visible)
 
 1. Ensure OBS is open.
 2. From the menu, select **View → Multiview (Fullscreen) → R240HY2**.
 
-## Previewing a Camera
+### Previewing a Camera
 
 The preview panel in OBS shows what the next camera looks like before you switch to it live.
 
 ![OBS preview panel](../assets/obs-preview.png){width=70%}
 
-## OBS Controls Panel
+### OBS Controls Panel
 
 The controls panel sits in the lower-right area of OBS.
 
 ![OBS controls panel](../assets/obs-controls.png){width=50%}
 
-## PTZ Camera Control
+### PTZ Camera Control
 
 Camera position (pan, tilt, zoom) is controlled within OBS using the **PTZ Controls** dock.
 
@@ -333,7 +292,7 @@ The PTZ dock has three sections:
 
    ![OBS camera pan and zoom controls](../assets/obs-move-and-zoom.png){width=60%}
 
-### Available Camera Presets
+#### Available Camera Presets
 
 Most cameras share the same preset list. The most-used presets are at the top:
 
@@ -353,7 +312,7 @@ Most cameras share the same preset list. The most-used presets are at the top:
 > **Tip:** A short click on a PTZ control button produces a small movement.
 > Holding the button produces a longer, continuous movement.
 
-## Stream Deck
+### Stream Deck
 
 The **Stream Deck Neo** sits on the operator table and provides quick one-touch buttons.
 
@@ -371,7 +330,7 @@ The **Stream Deck Neo** sits on the operator table and provides quick one-touch 
 | Top row, button 6 | **Full-screen** slide view |
 | Bottom row, buttons 1–4 | Switch to Camera 1, 2, 3, or 4 |
 
-### Overlay Types
+#### Overlay Types
 
 **Text overlay** — lower-third text bar:
 
@@ -391,23 +350,23 @@ The **Stream Deck Neo** sits on the operator table and provides quick one-touch 
 
 \newpage
 
-# Presentation
+## Presentation
 
-## Presentation Computer
+### Presentation Computer
 
 The Presentation PC runs **Presenter by Worship Tools**, which displays lyrics, readings, and videos
 on the main projection screen and the stage confidence monitor.
 
 ![Presentation PC power button location](../assets/presentation-power.png){width=50%}
 
-## Starting Presenter
+### Starting Presenter
 
 1. Open **Presenter** from the taskbar (icon looks like a green "P").
 2. If prompted to log in, use: `av@allshepherds.org`.
 
    ![Presenter home screen](../assets/presenter.png){width=80%}
 
-## Presenter Layout
+### Presenter Layout
 
 The Presenter window has three main areas:
 
@@ -417,7 +376,7 @@ The Presenter window has three main areas:
 - **Cue list** (center) — Each cue is a step in the service (hymn, reading, video, etc.).
 - **Slide preview** (right) — Shows the current slide.
 
-## Running a Service
+### Running a Service
 
 1. Select today's service from the **Services** list on the left.
 2. Click the **first cue** in the cue list to begin.
@@ -427,7 +386,7 @@ The Presenter window has three main areas:
    - **Down arrow** — skip to next cue
    - **Up arrow** — go to previous cue
 
-## Countdown Timer
+### Countdown Timer
 
 Before the 11:11 service, display a countdown on the screen:
 
@@ -437,7 +396,7 @@ Before the 11:11 service, display a countdown on the screen:
 
 The countdown will automatically disappear at 11:11.
 
-## Configure Screens {#configure-screens}
+### Configure Screens {#configure-screens}
 
 Run this check every startup to confirm slides appear on the correct displays.
 
@@ -460,7 +419,7 @@ Run this check every startup to confirm slides appear on the correct displays.
 4. Press **Save** after each assignment.
 5. To exit, click a cue in the list — slides will appear on the displays.
 
-## NDI Screen Capture
+### NDI Screen Capture
 
 NDI Screen Capture sends the presentation output over the network to OBS on the Broadcast PC.
 It should launch automatically from the taskbar. If the stream shows a blank slide area,
@@ -470,14 +429,14 @@ restart NDI Screen Capture from the taskbar.
 
 \newpage
 
-# Streaming
+## Streaming
 
-## Audio Levels for Streaming
+### Audio Levels for Streaming
 
 The streaming audio comes from BUS03 on the X32. Use this path to adjust streaming audio
 independently of the sanctuary speakers.
 
-## Schedule a Broadcast
+### Schedule a Broadcast
 
 Do this **before service starts** so the stream is ready to go live on time.
 
@@ -491,7 +450,7 @@ Do this **before service starts** so the stream is ready to go live on time.
 5. Press **Schedule Broadcast**, then press **Confirm**.
 6. Repeat for each service if there are multiple streams that day.
 
-## Start the Stream
+### Start the Stream
 
 1. In OBS, click **Manage Broadcast**.
 2. Click the **Select Existing Broadcast** tab.
@@ -506,12 +465,12 @@ Do this **before service starts** so the stream is ready to go live on time.
 
    > **Important:** Confirm you see "LIVE" in the OBS status bar at the bottom before walking away.
 
-## Stop the Stream
+### Stop the Stream
 
 1. In OBS, press **Stop Streaming**.
 2. Press **Confirm** in the confirmation dialog.
 
-## OBS Audio Monitor
+### OBS Audio Monitor
 
 Use the OBS audio mixer to verify all audio sources are active and at healthy levels during the stream.
 
@@ -576,6 +535,158 @@ Place the protective cover back over the X32 console.
 
 This section contains detailed configuration tables for troubleshooting and system setup.
 You do not need to memorize these during normal operation.
+
+## System Audio Map
+
+```mermaid
+flowchart LR
+    subgraph local["Local / Aux Inputs"]
+        l1["Presentation PC\n(LOC01)"]
+        l2["Android Device\n(LOC02)"]
+        l3["iOS / Mobile\n(LOC04)"]
+        l4["USB Playback\n(LOC03)"]
+        l5["CD Player\n(AUX05 / AUX06)"]
+    end
+
+    subgraph iems["In-Ear Monitors (P16)"]
+        p1["#1 · Praise Vocal 1 Yellow"]
+        p2["#2 · Praise Vocal 2 Blue"]
+        p3["#3 · Praise Vocal 3 Green"]
+        p4["#4 · Praise Vocal 4 Red"]
+        p5["#5 · Praise Vocal 5 White"]
+        p6["#6 · Keyboard"]
+        p7["#7 · E-Guitar"]
+        p8["#8 · A-Guitar"]
+        p9["#9 · Bass"]
+        p10["#10 · Kick Drum"]
+        p11["#11 · Drums SL + SR"]
+        p12["#12 · Cajon"]
+        p13["#13 · Pastor Mics"]
+        p14["#14 · House Mics"]
+        p15["#15 · Praise Vocal 6+7"]
+        p16["#16 · All Devices"]
+    end
+
+    SD16["SD16\n(Stage)"]
+    SD8_Sac["SD8\n(Sacristy)"]
+    SD8_Cho["SD8\n(Choir Loft)"]
+    X32["Behringer X32"]
+
+    SD16 -- AES50-A --> X32
+    SD8_Sac & SD8_Cho -- AES50-B --> X32
+    l1 & l2 & l3 & l4 & l5 -- Local/Aux --> X32
+    X32 -- AES50-C --> p1 & p2 & p3 & p4 & p5 & p6 & p7 & p8 & p9 & p10 & p11 & p12 & p13 & p14 & p15 & p16
+```
+
+## Stage Box Device Maps
+
+### Sacristy (SD8)
+
+```mermaid
+flowchart LR
+    subgraph sacristy["Sacristy"]
+        r1["B01 · Purple"]
+        r2["B02 · Praise Vocal 2"]
+        r3["B03 · Praise Vocal 3"]
+        r4["B04 · Praise Vocal 4"]
+        r5["B05 · Praise Vocal 1"]
+        r6["B06 · Orange"]
+        r7["B07 · Pastor 1"]
+        r8["B08 · Pastor 2"]
+    end
+
+    SD8_Sac["SD8\n(Sacristy)"]
+
+    r1 & r2 & r3 & r4 & r5 & r6 & r7 & r8 --> SD8_Sac
+```
+
+### Choir Loft (SD8)
+
+```mermaid
+flowchart LR
+    subgraph choir["Choir Loft"]
+        c1["B09 · Floor 1 Yellow"]
+        c2["B10 · Floor 2 Blue"]
+        c3["B11 · Floor 3 Green"]
+        c4["B12 · Floor 4 Red"]
+        c5["B13 · Choir SR"]
+        c6["B14 · Choir SC"]
+        c7["B15 · Choir SL"]
+        c8["B16 · Grand Piano"]
+    end
+
+    SD8_Cho["SD8\n(Choir Loft)"]
+
+    c1 & c2 & c3 & c4 & c5 & c6 & c7 & c8 --> SD8_Cho
+```
+
+### Stage (SD16)
+
+```mermaid
+flowchart LR
+    subgraph stage["Stage"]
+        s1["A05 · Praise Vocal 5"]
+        s2["A06 · Keys"]
+        s3["A07 · Electric Guitar"]
+        s4["A08 · Acoustic Guitar"]
+        s5["A09 · Bass"]
+        s6["A10 · Kick Drum"]
+        s7["A11 · SL Drums"]
+        s8["A12 · SR Drums"]
+        s9["A13 · Cajon"]
+        s10["A14 · Audience SL"]
+        s11["A15 · Pulpit"]
+        s12["A16 · Praise Vocal 6"]
+    end
+
+    SD16["SD16\n(Stage)"]
+
+    s1 & s2 & s3 & s4 & s5 & s6 & s7 & s8 & s9 & s10 & s11 & s12 --> SD16
+```
+
+## Equipment Overview
+
+The table below lists every piece of equipment in the system with its label and role.
+
+### Audio Equipment
+
+| Item | Label | Role |
+|---|---|---|
+| Behringer X32 | X32 | Main digital audio mixing console |
+| Behringer SD16 | SD16 | 16-input stage box — Stage (A01–A16) |
+| Behringer SD8 (×2) | SD8 | 8-input stage boxes — Sacristy (B01–B08) and Choir Loft (B09–B16) |
+| Behringer P16-M (×9) | P16 | Personal in-ear monitor mixers for musicians |
+| Crown XTi 6002 Amplifier | Crown 6002 | Powers sanctuary main speakers |
+| Crown XTi 1002 Amplifier | Crown 1002 | Powers gathering space and choir speakers |
+| JBL CBT-1000 (×2) | Main Speaker | Sanctuary main speakers |
+| JBL CBT50LA-1 (×4) | Side Speaker | Narthex and choir speakers |
+| Shure SLXD24/B87 Wireless Vocal Mic (×6) | B87 | Handheld wireless vocal microphones |
+| Shure SLXD14/MX153T Wireless Lavalier (×2) | MX153T | Wireless clip-on microphones for pastors |
+| Shure UA844+SWB Antenna Distribution (×2) | UA844 | Distributes antenna signal for wireless mics |
+| Shure SM58 (×4) | SM58 | Wired vocal microphone |
+| Shure SM57 (×3) | SM57 | Wired instrument microphone |
+| Shure CVO Overhead Condenser (×3) | CVO | Overhead choir microphones |
+| Xvive U45 IEM Wireless Transmitter (×6) | U45T | Sends monitor mix to in-ear packs |
+| Xvive U45 IEM Wireless Receiver (×12) | U45R | Wireless in-ear monitor belt packs |
+| Xvive U2 Wireless Guitar System | U2 | Wireless guitar transmitter and receiver |
+| Peavey USB-P Playback Device | USBP | USB audio playback |
+| Radial USB-Pro Direct Box | USBPro | Stereo USB audio input |
+
+### Video Equipment
+
+| Item | Label | Role |
+|---|---|---|
+| PTZOptics 20X-NDI Camera (×4) | 20XNDI | Remote-controlled PTZ cameras over NDI |
+| Beelink EQR6 Mini PC | Presentation PC | Runs Presenter (slides) and NDI Screen Capture |
+| SkyTech Blaze II Gaming PC | Broadcast PC | Runs OBS for live streaming and camera switching |
+| Panasonic PT-RZ970LBU7 Projector | Projector | Projects slides to the main sanctuary screen |
+| Screen Innovations 165" Fixed Frame | Screen | Main projection screen in sanctuary |
+| Samsung QB98R 98" Display | Confidence Monitor | Stage confidence monitor above the back door |
+| Acer 23.8" Monitor (×4) | Monitor | Operator monitors |
+| Elgato Stream Deck Neo | Stream Deck | One-touch camera switching and overlay control |
+| J-Tech HDMI Extender | — | Extends HDMI signal over Cat6 cable |
+| Wavlink USB-C Quad Monitor Adapter | — | Drives multiple monitors from Presentation PC |
+| Extron DTP HDMI 4K 230 TX | — | Transmits HDMI signal to projector over Cat6 |
 
 ## X32 Channel Map
 
