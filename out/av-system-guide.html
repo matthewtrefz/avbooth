@@ -1,0 +1,2300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>document</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      securityLevel: 'loose'
+    });
+    window.addEventListener('load', function() {
+      var converted = new Set();
+
+      document.querySelectorAll('pre').forEach(function(pre) {
+        var code = pre.querySelector('code');
+        var preHasMermaid = pre.className && pre.className.indexOf('mermaid') !== -1;
+        var codeHasMermaid =
+          code &&
+          (code.className || '').match(/(?:^|\s)(?:mermaid|language-mermaid)(?:\s|$)/);
+
+        if (preHasMermaid || codeHasMermaid) {
+          var div = document.createElement('div');
+          div.className = 'mermaid';
+          div.textContent = code ? code.textContent : pre.textContent;
+          if (pre.parentNode) {
+            if (code) {
+              converted.add(code);
+            }
+            pre.parentNode.replaceChild(div, pre);
+          }
+        }
+      });
+
+      // Handle rare cases where mermaid markup exists without a <pre> wrapper
+      document.querySelectorAll('code').forEach(function(code) {
+        var hasMermaid = (code.className || '').indexOf('mermaid') !== -1 || (code.className || '').indexOf('language-mermaid') !== -1;
+        if (!hasMermaid || converted.has(code)) {
+          return;
+        }
+        var wrapper = document.createElement('div');
+        wrapper.className = 'mermaid';
+        wrapper.textContent = code.textContent;
+        if (code.parentNode) {
+          code.parentNode.replaceChild(wrapper, code);
+          converted.add(wrapper);
+        }
+      });
+
+      setTimeout(function() {
+        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+      }, 100);
+    });
+  </script>
+
+  <style>
+  body {
+      font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      line-height: 1.5;
+      color: #333;
+      background-color: #fafafa;
+      margin: 0 !important;
+      padding: 20px !important;
+      font-size: 14px;
+  }
+
+  table {
+      border-collapse: collapse;
+      min-width: 60%;
+      max-width: 100%;
+      margin: 20px 0;
+      background: white;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  table tr th {
+      background-color: #143452;
+      color: white;
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: 500;
+  }
+
+  .table-http th,
+  .table-http td,
+  table th,
+  table td {
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      white-space: normal;
+  }
+
+  .tr-break {
+      background-color: #2d79b717 !important;
+  }
+
+  .tr-break td {
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: bold;
+  }
+
+  table tr td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #ecf0f1;
+  }
+
+  table tr:last-child td {
+      border-bottom: none;
+  }
+
+  table tr:nth-child(even) {
+      background-color: #f8f9fa;
+  }
+
+  .highlight {
+      background-color: #fff3cd !important;
+  }
+
+  a {
+      font-size: 14px;
+  }
+
+  code {
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Monaco', 'Consolas', monospace;
+      background: #fff8e4;
+      color: #c99a0d;
+      font-size: 13px;
+  }
+
+  pre code {
+      background-color: transparent;
+  }
+
+  pre {
+      background-color: #000;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 6px;
+      border-left: 4px solid #3498db;
+      overflow-x: auto;
+  }
+
+  pre code.language-php,
+  pre code.language-sql,
+  pre code.language-javascript,
+  pre code.language-bash,
+  pre code.language-shell {
+    background-color: #282c34 !important;
+    color: #abb2bf;
+  }
+
+  /* Syntax Highlighting */
+  code span.kw { color: #c678dd; font-weight: bold; } /* Keyword */
+  code span.dt { color: #e5c07b; } /* Datatype */
+  code span.dv { color: #d19a66; } /* Decimal Value */
+  code span.bn { color: #d19a66; } /* Base N */
+  code span.fl { color: #d19a66; } /* Float */
+  code span.ch { color: #98c379; } /* Char */
+  code span.st { color: #98c379; } /* String */
+  code span.co { color: #5c6370; font-style: italic; } /* Comment */
+  code span.ot { color: #e06c75; } /* Other */
+  code span.al { color: #e06c75; font-weight: bold; } /* Alert */
+  code span.fu { color: #61afef; } /* Function */
+  code span.er { color: #e06c75; font-weight: bold; } /* Error */
+  code span.wa { color: #e06c75; font-style: italic; } /* Warning */
+  code span.cn { color: #d19a66; } /* Constant */
+  code span.sc { color: #e5c07b; } /* Special Char */
+  code span.vs { color: #98c379; } /* Verbatim String */
+  code span.ss { color: #98c379; } /* Special String */
+  code span.im { color: #c678dd; } /* Import */
+  code span.va { color: #e06c75; } /* Variable */
+  code span.cf { color: #c678dd; } /* Control Flow */
+  code span.op { color: #56b6c2; } /* Operator */
+  code span.bu { color: #e5c07b; } /* BuiltIn */
+  code span.ex { color: #d19a66; } /* Extension */
+  code span.pp { color: #e5c07b; } /* Preprocessor */
+  code span.at { color: #d19a66; } /* Attribute */
+  code span.do { color: #5c6370; font-style: italic; } /* Documentation */
+  code span.an { color: #5c6370; font-style: italic; } /* Annotation */
+  code span.cv { color: #5c6370; font-style: italic; } /* Comment Var */
+  code span.in { color: #5c6370; font-style: italic; } /* Information */
+
+  ul, ol {
+      margin: 15px 0;
+      padding-left: 30px;
+  }
+
+  li {
+      margin-bottom: 8px;
+  }
+
+  blockquote {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+      color: #856404;
+  }
+
+  pre code.language-json {
+    background-color: #0d1117 !important;
+    color: #58a6ff !important;
+    display: block;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: -15px;
+  }
+
+  .table-http code {
+      font-size: 12px;
+  }
+
+  .table-http th:nth-child(1),.table-http td:nth-child(1) { width: 8%; }  /* HTTP Method */
+  .table-http th:nth-child(2),.table-http td:nth-child(2) { width: 15%; } /* URL */
+  .table-http th:nth-child(3),.table-http td:nth-child(3) { width: 19%; } /* Mô tả */
+  .table-http th:nth-child(4),.table-http td:nth-child(4) { width: 43%; } /* RewriteRule */
+  .table-http th:nth-child(5),.table-http td:nth-child(5) { width: 15%; } /* Ví dụ */
+
+  pre, pre.sourceCode {
+      background-color: #c0c4c73b;
+  }
+
+  .sourceCode {
+      overflow: auto;
+  }
+
+  /* Pandoc highlight overrides */
+  pre.sourceCode {
+      background: #f7f7f7;
+      border: 1px solid #e0e0e0;
+      padding: 16px;
+      border-radius: 6px;
+  }
+  .sourceCode code {
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 13px;
+  }
+  .sourceCode .kw { color: #2a8ad4; font-weight: 700; }    /* keywords */
+  .sourceCode .cf { color: #2a8ad4; font-weight: 700; }    /* control flow */
+  .sourceCode .dt { color: #070707; }                      /* data types */
+  .sourceCode .fu { color: #8b5cf6; }                     /* functions */
+  .sourceCode .op { color: #2a8ad4; }                     /* operators */
+  .sourceCode .st { color: #0aa370; }                     /* strings */
+  .sourceCode .dv,                                     /* decimal values */
+  .sourceCode .bn { color: #c18401; }                     /* numbers */
+  .sourceCode .fl { color: #c18401; }                     /* floats */
+  .sourceCode .ch { color: #0aa370; }                     /* chars */
+  .sourceCode .co { color: #6a737d; font-style: italic; } /* comments */
+  .sourceCode .va { color: #444; }                        /* variables */
+  .sourceCode .cn { color: #c18401; font-weight: 700; }   /* constants */
+  .sourceCode .al { color: #d73a49; font-weight: 700; }   /* alerts */
+  .sourceCode .an { color: #d73a49; font-weight: 700; }   /* annotations */
+  .sourceCode .at { color: #005cc5; }                     /* attributes */
+  .sourceCode .im { color: #005cc5; }                     /* imports */
+
+  #TOC {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  #TOC > ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  #TOC ul {
+    list-style: none;
+    padding-left: 20px;
+  }
+
+  #TOC li {
+    margin: 8px 0;
+  }
+
+  #TOC a {
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  #TOC a:hover {
+    color: #004499;
+    text-decoration: underline;
+  }
+
+  #TOC > ul > li > a {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+  }
+
+  #TOC ul ul a {
+    font-size: 0.95em;
+    color: #555;
+  }
+
+  hr {
+      background: #cacaca;
+  }
+
+  .w-50 {
+      width: 50%;
+  }
+
+  .w-100 {
+      width: 100%;
+  }
+
+  .max-w-100 {
+      max-width: 100% !important;
+  }
+
+  .shadow-xs {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  a {
+      font-size: 14px;
+  }
+
+  code {
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Monaco', 'Consolas', monospace;
+      background: #fff8e4;
+      color: #c99a0d;
+      font-size: 13px;
+  }
+
+  pre code {
+      background-color: transparent;
+  }
+
+  pre {
+      background-color: #000;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 6px;
+      border-left: 4px solid #3498db;
+      overflow-x: auto;
+  }
+
+  pre.sourceCode {
+      border-left: 4px solid #3498db;
+  }
+
+  pre code.language-php,
+  pre code.language-sql,
+  pre code.language-javascript,
+  pre code.language-bash,
+  pre code.language-shell {
+    background-color: #282c34 !important;
+    color: #abb2bf;
+  }
+
+  /* Syntax Highlighting */
+  code span.kw { color: #c678dd; font-weight: bold; } /* Keyword */
+  code span.dt { color: #e5c07b; } /* Datatype */
+  code span.dv { color: #d19a66; } /* Decimal Value */
+  code span.bn { color: #d19a66; } /* Base N */
+  code span.fl { color: #d19a66; } /* Float */
+  code span.ch { color: #98c379; } /* Char */
+  code span.st { color: #98c379; } /* String */
+  code span.co { color: #5c6370; font-style: italic; } /* Comment */
+  code span.ot { color: #e06c75; } /* Other */
+  code span.al { color: #e06c75; font-weight: bold; } /* Alert */
+  code span.fu { color: #61afef; } /* Function */
+  code span.er { color: #e06c75; font-weight: bold; } /* Error */
+  code span.wa { color: #e06c75; font-style: italic; } /* Warning */
+  code span.cn { color: #d19a66; } /* Constant */
+  code span.sc { color: #e5c07b; } /* Special Char */
+  code span.vs { color: #98c379; } /* Verbatim String */
+  code span.ss { color: #98c379; } /* Special String */
+  code span.im { color: #c678dd; } /* Import */
+  code span.va { color: #e06c75; } /* Variable */
+  code span.cf { color: #c678dd; } /* Control Flow */
+  code span.op { color: #56b6c2; } /* Operator */
+  code span.bu { color: #e5c07b; } /* BuiltIn */
+  code span.ex { color: #d19a66; } /* Extension */
+  code span.pp { color: #e5c07b; } /* Preprocessor */
+  code span.at { color: #d19a66; } /* Attribute */
+  code span.do { color: #5c6370; font-style: italic; } /* Documentation */
+  code span.an { color: #5c6370; font-style: italic; } /* Annotation */
+  code span.cv { color: #5c6370; font-style: italic; } /* Comment Var */
+  code span.in { color: #5c6370; font-style: italic; } /* Information */
+
+  ul, ol {
+      margin: 15px 0;
+      padding-left: 30px;
+  }
+
+  li {
+      margin-bottom: 8px;
+  }
+
+  blockquote {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+      color: #856404;
+  }
+
+  pre code.language-json {
+    background-color: #0d1117 !important;
+    color: #58a6ff !important;
+    display: block;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: -15px;
+  }
+
+  .table-http code {
+      font-size: 12px;
+  }
+
+  .table-http th:nth-child(1),.table-http td:nth-child(1) { width: 8%; }  /* HTTP Method */
+  .table-http th:nth-child(2),.table-http td:nth-child(2) { width: 15%; } /* URL */
+  .table-http th:nth-child(3),.table-http td:nth-child(3) { width: 19%; } /* Mô tả */
+  .table-http th:nth-child(4),.table-http td:nth-child(4) { width: 43%; } /* RewriteRule */
+  .table-http th:nth-child(5),.table-http td:nth-child(5) { width: 15%; } /* Ví dụ */
+
+  pre, pre.sourceCode {
+      background-color: #c0c4c73b;
+  }
+
+  .sourceCode {
+      overflow: auto;
+  }
+
+  /* Pandoc highlight overrides */
+  pre.sourceCode {
+      background: #f7f7f7;
+      border: 1px solid #e0e0e0;
+      padding: 16px;
+      border-radius: 6px;
+      border-left: 4px solid #3498db;
+  }
+  .sourceCode code {
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 13px;
+  }
+  .sourceCode .kw { color: #2a8ad4; font-weight: 700; }    /* keywords */
+  .sourceCode .cf { color: #2a8ad4; font-weight: 700; }    /* control flow */
+  .sourceCode .dt { color: #070707; }                      /* data types */
+  .sourceCode .fu { color: #8b5cf6; }                     /* functions */
+  .sourceCode .op { color: #2a8ad4; }                     /* operators */
+  .sourceCode .st { color: #0aa370; }                     /* strings */
+  .sourceCode .dv,                                     /* decimal values */
+  .sourceCode .bn { color: #c18401; }                     /* numbers */
+  .sourceCode .fl { color: #c18401; }                     /* floats */
+  .sourceCode .ch { color: #0aa370; }                     /* chars */
+  .sourceCode .co { color: #6a737d; font-style: italic; } /* comments */
+  .sourceCode .va { color: #444; }                        /* variables */
+  .sourceCode .cn { color: #c18401; font-weight: 700; }   /* constants */
+  .sourceCode .al { color: #d73a49; font-weight: 700; }   /* alerts */
+  .sourceCode .an { color: #d73a49; font-weight: 700; }   /* annotations */
+  .sourceCode .at { color: #005cc5; }                     /* attributes */
+  .sourceCode .im { color: #005cc5; }                     /* imports */
+
+  #TOC {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  #TOC > ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  #TOC ul {
+    list-style: none;
+    padding-left: 20px;
+  }
+
+  #TOC li {
+    margin: 8px 0;
+  }
+
+  #TOC a {
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  #TOC a:hover {
+    color: #004499;
+    text-decoration: underline;
+  }
+
+  #TOC > ul > li > a {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+  }
+
+  #TOC ul ul a {
+    font-size: 0.95em;
+    color: #555;
+  }
+
+  hr {
+      background: #cacaca;
+  }
+
+  .w-50 {
+      width: 50%;
+  }
+
+  .w-100 {
+      width: 100%;
+  }
+
+  .max-w-100 {
+      max-width: 100% !important;
+  }
+
+  .shadow-xs {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
+<li><a href="#system-startup" id="toc-system-startup">System Startup</a>
+<ul>
+<li><a href="#uncover-the-sound-board"
+id="toc-uncover-the-sound-board">1 — Uncover the Sound Board</a></li>
+<li><a href="#power-on-the-audio-system"
+id="toc-power-on-the-audio-system">2 — Power On the Audio
+System</a></li>
+<li><a href="#power-on-the-projector" id="toc-power-on-the-projector">3
+— Power On the Projector</a></li>
+<li><a href="#power-on-the-confidence-monitor"
+id="toc-power-on-the-confidence-monitor">4 — Power On the Confidence
+Monitor</a></li>
+<li><a href="#power-on-the-presentation-computer"
+id="toc-power-on-the-presentation-computer">5 — Power On the
+Presentation Computer</a></li>
+<li><a href="#power-on-the-broadcast-computer"
+id="toc-power-on-the-broadcast-computer">6 — Power On the Broadcast
+Computer</a></li>
+<li><a href="#power-on-the-cameras" id="toc-power-on-the-cameras">7 —
+Power On the Cameras</a></li>
+<li><a href="#distribute-microphones" id="toc-distribute-microphones">8
+— Distribute Microphones</a></li>
+<li><a href="#streaming-setup" id="toc-streaming-setup">9 — Streaming
+Setup</a></li>
+</ul></li>
+<li><a href="#service-operations" id="toc-service-operations">Service
+Operations</a>
+<ul>
+<li><a href="#audio-operations" id="toc-audio-operations">Audio
+Operations</a>
+<ul>
+<li><a href="#the-x32-console-sections"
+id="toc-the-x32-console-sections">The X32 Console Sections</a></li>
+<li><a href="#dca-faders" id="toc-dca-faders">DCA Faders</a></li>
+<li><a href="#mute-groups" id="toc-mute-groups">Mute Groups</a></li>
+<li><a href="#praise-band-channel-strips"
+id="toc-praise-band-channel-strips">Praise Band Channel Strips</a></li>
+<li><a href="#adjusting-levels-during-service"
+id="toc-adjusting-levels-during-service">Adjusting Levels During
+Service</a></li>
+<li><a href="#in-ear-monitors" id="toc-in-ear-monitors">In-Ear
+Monitors</a></li>
+</ul></li>
+<li><a href="#video-camera-operations"
+id="toc-video-camera-operations">Video &amp; Camera Operations</a>
+<ul>
+<li><a href="#obs-layout" id="toc-obs-layout">OBS Layout</a></li>
+<li><a href="#multiview" id="toc-multiview">Multiview</a></li>
+<li><a href="#previewing-a-camera"
+id="toc-previewing-a-camera">Previewing a Camera</a></li>
+<li><a href="#obs-controls-panel" id="toc-obs-controls-panel">OBS
+Controls Panel</a></li>
+<li><a href="#ptz-camera-control" id="toc-ptz-camera-control">PTZ Camera
+Control</a></li>
+<li><a href="#stream-deck" id="toc-stream-deck">Stream Deck</a></li>
+</ul></li>
+<li><a href="#presentation" id="toc-presentation">Presentation</a>
+<ul>
+<li><a href="#presentation-computer"
+id="toc-presentation-computer">Presentation Computer</a></li>
+<li><a href="#starting-presenter" id="toc-starting-presenter">Starting
+Presenter</a></li>
+<li><a href="#presenter-layout" id="toc-presenter-layout">Presenter
+Layout</a></li>
+<li><a href="#running-a-service" id="toc-running-a-service">Running a
+Service</a></li>
+<li><a href="#countdown-timer" id="toc-countdown-timer">Countdown
+Timer</a></li>
+<li><a href="#configure-screens" id="toc-configure-screens">Configure
+Screens</a></li>
+<li><a href="#ndi-screen-capture" id="toc-ndi-screen-capture">NDI Screen
+Capture</a></li>
+</ul></li>
+<li><a href="#streaming" id="toc-streaming">Streaming</a>
+<ul>
+<li><a href="#audio-levels-for-streaming"
+id="toc-audio-levels-for-streaming">Audio Levels for Streaming</a></li>
+<li><a href="#schedule-a-broadcast"
+id="toc-schedule-a-broadcast">Schedule a Broadcast</a></li>
+<li><a href="#start-the-stream" id="toc-start-the-stream">Start the
+Stream</a></li>
+<li><a href="#stop-the-stream" id="toc-stop-the-stream">Stop the
+Stream</a></li>
+<li><a href="#obs-audio-monitor" id="toc-obs-audio-monitor">OBS Audio
+Monitor</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#system-shutdown" id="toc-system-shutdown">System
+Shutdown</a>
+<ul>
+<li><a href="#return-microphones" id="toc-return-microphones">1 — Return
+Microphones</a></li>
+<li><a href="#power-off-cameras" id="toc-power-off-cameras">2 — Power
+Off Cameras</a></li>
+<li><a href="#close-obs-and-shut-down-broadcast-computer"
+id="toc-close-obs-and-shut-down-broadcast-computer">3 — Close OBS and
+Shut Down Broadcast Computer</a></li>
+<li><a href="#close-presenter-and-shut-down-presentation-computer"
+id="toc-close-presenter-and-shut-down-presentation-computer">4 — Close
+Presenter and Shut Down Presentation Computer</a></li>
+<li><a href="#power-off-audio-board" id="toc-power-off-audio-board">5 —
+Power Off Audio Board</a></li>
+<li><a href="#cover-the-sound-board" id="toc-cover-the-sound-board">6 —
+Cover the Sound Board</a></li>
+</ul></li>
+<li><a href="#technical-reference"
+id="toc-technical-reference">Technical Reference</a>
+<ul>
+<li><a href="#system-audio-map" id="toc-system-audio-map">System Audio
+Map</a></li>
+<li><a href="#stage-box-device-maps"
+id="toc-stage-box-device-maps">Stage Box Device Maps</a>
+<ul>
+<li><a href="#sacristy-sd8" id="toc-sacristy-sd8">Sacristy
+(SD8)</a></li>
+<li><a href="#choir-loft-sd8" id="toc-choir-loft-sd8">Choir Loft
+(SD8)</a></li>
+<li><a href="#stage-sd16" id="toc-stage-sd16">Stage (SD16)</a></li>
+</ul></li>
+<li><a href="#equipment-overview" id="toc-equipment-overview">Equipment
+Overview</a>
+<ul>
+<li><a href="#audio-equipment" id="toc-audio-equipment">Audio
+Equipment</a></li>
+<li><a href="#video-equipment" id="toc-video-equipment">Video
+Equipment</a></li>
+</ul></li>
+<li><a href="#x32-channel-map" id="toc-x32-channel-map">X32 Channel
+Map</a></li>
+<li><a href="#aux-inputs" id="toc-aux-inputs">Aux Inputs</a></li>
+<li><a href="#bus-sends" id="toc-bus-sends">Bus Sends</a></li>
+<li><a href="#stage-box-device-map" id="toc-stage-box-device-map">Stage
+Box Device Map</a></li>
+</ul></li>
+</ul>
+</nav>
+<hr />
+title: AV System Operations Guide
+<hr />
+<!-- TOC-START -->
+<!-- TOC-END -->
+<h1 id="introduction">Introduction</h1>
+<p>This guide covers the complete operation of the audio-visual system
+used during worship services. It is written for volunteers who operate
+the sound board, cameras, presentation, and streaming equipment.</p>
+<p><strong>This guide covers:</strong></p>
+<ul>
+<li>Equipment identification and location</li>
+<li>System startup procedure</li>
+<li>Audio adjustments during service (faders, mute groups, in-ear
+monitors)</li>
+<li>Camera control and switching</li>
+<li>Presentation and slide display</li>
+<li>Live streaming setup and operation</li>
+<li>System shutdown procedure</li>
+</ul>
+<blockquote>
+<p><strong>A note before you begin:</strong> Follow the startup steps in
+order. Powering things on out of sequence can cause audio feedback or a
+blank stream. When in doubt, restart from the top of the checklist.</p>
+</blockquote>
+<h1 id="system-startup">System Startup</h1>
+<p>Follow these steps <strong>in order</strong> at the beginning of each
+service day.</p>
+<h2 id="uncover-the-sound-board">1 — Uncover the Sound Board</h2>
+<p>Remove the protective cover from the X32 mixing console before
+touching any controls.</p>
+<h2 id="power-on-the-audio-system">2 — Power On the Audio System</h2>
+<ol type="1">
+<li><p>Locate the power conditioner (Furman unit) on the equipment
+rack.</p></li>
+<li><p>Flip the <strong>power toggle</strong> to the ON position.</p>
+<figure>
+<img src="../assets/system-power-toggle.png" style="width:60.0%"
+alt="Power conditioner with power toggle highlighted" />
+<figcaption aria-hidden="true">Power conditioner with power toggle
+highlighted</figcaption>
+</figure></li>
+<li><p>When the X32 has booted, load the <strong>Service</strong>
+scene:</p>
+<ul>
+<li><p>Bring the <strong>MAIN</strong> fader up to <strong>0 dB</strong>
+(unity).</p>
+<figure>
+<img src="../assets/x32-main.png" style="width:60.0%"
+alt="X32 main fader at unity" />
+<figcaption aria-hidden="true">X32 main fader at unity</figcaption>
+</figure></li>
+</ul></li>
+</ol>
+<h2 id="power-on-the-projector">3 — Power On the Projector</h2>
+<ol type="1">
+<li>Use the Panasonic projector remote.</li>
+<li>Press the <strong>Power</strong> button once. The projector will
+warm up for about 30 seconds.</li>
+</ol>
+<h2 id="power-on-the-confidence-monitor">4 — Power On the Confidence
+Monitor</h2>
+<ol type="1">
+<li>Use the Samsung remote.</li>
+<li>Press the <strong>Power</strong> button on the TV above the back
+door.</li>
+</ol>
+<h2 id="power-on-the-presentation-computer">5 — Power On the
+Presentation Computer</h2>
+<ol type="1">
+<li>Press the power button on the <strong>Presentation</strong> mini
+PC.</li>
+<li>Enter PIN <strong>6580</strong> at the login screen. <em>(If no
+input box appears, shake the mouse or press the spacebar.)</em></li>
+<li>From the taskbar, open <strong>NDI Screen Capture</strong>.</li>
+<li>From the taskbar, open <strong>Presenter</strong>. <em>(Presenter
+may prompt for login: <code>av@allshepherds.org</code>)</em></li>
+<li>Check screen configuration — see <a
+href="#configure-screens">Configure Screens</a>.</li>
+</ol>
+<h2 id="power-on-the-broadcast-computer">6 — Power On the Broadcast
+Computer</h2>
+<ol type="1">
+<li>Press the power button on the <strong>Broadcast</strong> tower
+PC.</li>
+<li>Enter PIN <strong>6580</strong> at the login screen.</li>
+<li>From the taskbar, open <strong>OBS</strong>. Press
+<strong>OK</strong> if a plugin error message appears.</li>
+</ol>
+<h2 id="power-on-the-cameras">7 — Power On the Cameras</h2>
+<p>Use the Stream Deck to power on all four cameras:</p>
+<ol type="1">
+<li><p>On the Stream Deck, press the <strong>arrow button</strong> to
+the right of the clock to go to the camera page.</p></li>
+<li><p>Press the <strong>Camera Power On</strong> button.</p>
+<figure>
+<img src="../assets/stream-deck-camera-power.png" style="width:50.0%"
+alt="Stream Deck camera power button" />
+<figcaption aria-hidden="true">Stream Deck camera power
+button</figcaption>
+</figure></li>
+<li><p>Verify the multiview screen on the broadcast computer shows all
+four cameras.</p>
+<figure>
+<img src="../assets/obs-multiview.png" style="width:80.0%"
+alt="OBS multiview showing all four cameras" />
+<figcaption aria-hidden="true">OBS multiview showing all four
+cameras</figcaption>
+</figure></li>
+</ol>
+<h2 id="distribute-microphones">8 — Distribute Microphones</h2>
+<ul>
+<li><strong>Pastor’s mic pack</strong> — Deliver the designated wireless
+lavalier to the pastor before service.</li>
+<li><strong>Handheld mics:</strong>
+<ul>
+<li><strong>Orange</strong> mic → choir loft</li>
+<li><strong>Purple</strong> mic → mic stand by baptismal font</li>
+<li>Remaining mics → praise band stage</li>
+</ul></li>
+</ul>
+<h2 id="streaming-setup">9 — Streaming Setup</h2>
+<p>See the <a href="#streaming">Streaming</a> section to schedule and
+prepare the stream before service begins.</p>
+<h1 id="service-operations">Service Operations</h1>
+<p>This section covers audio mixing, camera control, presentation, and
+streaming operations during the service.</p>
+<h2 id="audio-operations">Audio Operations</h2>
+<h3 id="the-x32-console-sections">The X32 Console Sections</h3>
+<p>The top of the X32 has four main sections you will use during
+service:</p>
+<figure>
+<img src="../assets/x32-top-sections.png" style="width:90.0%"
+alt="X32 top panel sections" />
+<figcaption aria-hidden="true">X32 top panel sections</figcaption>
+</figure>
+<h3 id="dca-faders">DCA Faders</h3>
+<p>DCAs (Digitally Controlled Amplifiers) are master volume controls
+that groups multiple channels. Use DCAs for quick level adjustments
+without touching individual channel faders.</p>
+<figure>
+<img src="../assets/x32-dca.png" style="width:70.0%"
+alt="X32 DCA section" />
+<figcaption aria-hidden="true">X32 DCA section</figcaption>
+</figure>
+<table>
+<thead>
+<tr>
+<th>DCA</th>
+<th>Label</th>
+<th>What It Controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DCA 1</td>
+<td>Pastor Craig</td>
+<td>Pastor Craig’s wireless lavalier</td>
+</tr>
+<tr>
+<td>DCA 2</td>
+<td>Pastor Wendy</td>
+<td>Pastor Wendy’s wireless lavalier</td>
+</tr>
+<tr>
+<td>DCA 3</td>
+<td>Purple</td>
+<td>Purple handheld mic (baptismal font)</td>
+</tr>
+<tr>
+<td>DCA 4</td>
+<td>Orange</td>
+<td>Orange handheld mic (choir loft)</td>
+</tr>
+<tr>
+<td>DCA 5</td>
+<td>Pulpit</td>
+<td>Pulpit microphone</td>
+</tr>
+<tr>
+<td>DCA 6</td>
+<td>Projector</td>
+<td>Presentation / projection audio</td>
+</tr>
+<tr>
+<td>DCA 7</td>
+<td>Choir</td>
+<td>Choir overhead microphones (CH26–28)</td>
+</tr>
+<tr>
+<td>DCA 8</td>
+<td>Device</td>
+<td>All playback devices (BUS12)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tip:</strong> During a pastor’s message, raise DCA 1 or DCA
+2. During music.</p>
+</blockquote>
+<h3 id="mute-groups">Mute Groups</h3>
+<p>Mute groups let you silence an entire section with a single button
+press. They are located in the bottom-right corner of the X32
+console.</p>
+<figure>
+<img src="../assets/x32-mute-group.png" style="width:60.0%"
+alt="X32 mute groups section" />
+<figcaption aria-hidden="true">X32 mute groups section</figcaption>
+</figure>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Label</th>
+<th>Silences</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MG 1</td>
+<td>Praise Vocals</td>
+<td>All praise vocal microphones</td>
+</tr>
+<tr>
+<td>MG 2</td>
+<td>Praise Instruments</td>
+<td>All praise band instruments</td>
+</tr>
+<tr>
+<td>MG 3</td>
+<td>Floor Mics</td>
+<td>Floor pocket microphones (CH17–20)</td>
+</tr>
+<tr>
+<td>MG 5</td>
+<td>Gathering Space</td>
+<td>Speakers in the gathering/narthex area</td>
+</tr>
+<tr>
+<td>MG 6</td>
+<td>Choir</td>
+<td>Speakers in the choir loft</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> A lit mute button means that group <strong>is
+muted</strong> (silent). Press again to un-mute.</p>
+</blockquote>
+<h3 id="praise-band-channel-strips">Praise Band Channel Strips</h3>
+<p>The praise band occupies channels 1–13. Use the channel faders to
+balance individual instruments.</p>
+<h3 id="adjusting-levels-during-service">Adjusting Levels During
+Service</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A pastor’s mic is too quiet</td>
+<td>Raise the corresponding DCA fader (DCA 1 or 2)</td>
+</tr>
+<tr>
+<td>A pastor’s mic is feeding back</td>
+<td>Lower the DCA immediately, then slightly reduce the channel’s gain
+or EQ</td>
+</tr>
+<tr>
+<td>Vocals are too loud in the sanctuary</td>
+<td>Lower MG 1 briefly or reduce individual vocal faders</td>
+</tr>
+<tr>
+<td>Band is overpowering vocals</td>
+<td>Lower individual instrument channel faders</td>
+</tr>
+<tr>
+<td>No audio from presentation/video</td>
+<td>Check DCA 6 is raised; verify Presentation PC is sending audio</td>
+</tr>
+<tr>
+<td>Gathering space is too loud</td>
+<td>Lower or mute MG 5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="in-ear-monitors">In-Ear Monitors</h3>
+<p>The <strong>Behringer P16-M</strong> personal monitor mixers are used
+by musicians on stage. Each musician controls their own mix on their
+unit.</p>
+<p>The P16 receives its input signals from the X32 via an AES50 network
+connection. The channel mapping is:</p>
+<table>
+<thead>
+<tr>
+<th>P16 Ch</th>
+<th>Label</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PM 01</td>
+<td>Praise Vocal 1 (Yellow)</td>
+<td>CH01</td>
+</tr>
+<tr>
+<td>PM 02</td>
+<td>Praise Vocal 2 (Blue)</td>
+<td>CH02</td>
+</tr>
+<tr>
+<td>PM 03</td>
+<td>Praise Vocal 3 (Green)</td>
+<td>CH03</td>
+</tr>
+<tr>
+<td>PM 04</td>
+<td>Praise Vocal 4 (Red)</td>
+<td>CH04</td>
+</tr>
+<tr>
+<td>PM 05</td>
+<td>Praise Vocal 5 (White)</td>
+<td>CH05</td>
+</tr>
+<tr>
+<td>PM 06</td>
+<td>Keyboard</td>
+<td>CH06</td>
+</tr>
+<tr>
+<td>PM 07</td>
+<td>Electric Guitar</td>
+<td>CH07</td>
+</tr>
+<tr>
+<td>PM 08</td>
+<td>Acoustic Guitar</td>
+<td>CH08</td>
+</tr>
+<tr>
+<td>PM 09</td>
+<td>Bass</td>
+<td>CH09</td>
+</tr>
+<tr>
+<td>PM 10</td>
+<td>Kick Drum</td>
+<td>CH10</td>
+</tr>
+<tr>
+<td>PM 11</td>
+<td>Drums (SL + SR)</td>
+<td>BUS08</td>
+</tr>
+<tr>
+<td>PM 12</td>
+<td>Cajon</td>
+<td>CH12</td>
+</tr>
+<tr>
+<td>PM 13</td>
+<td>Pastor Mics</td>
+<td>BUS09</td>
+</tr>
+<tr>
+<td>PM 14</td>
+<td>House Mics</td>
+<td>BUS10</td>
+</tr>
+<tr>
+<td>PM 15</td>
+<td>Praise Vocal 6 &amp; 7</td>
+<td>BUS11</td>
+</tr>
+<tr>
+<td>PM 16</td>
+<td>All Devices</td>
+<td>BUS12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tip:</strong> If a musician cannot hear themselves, check
+that their P16 unit is powered on and that its own channel fader for
+their instrument is raised.</p>
+</blockquote>
+<h2 id="video-camera-operations">Video &amp; Camera Operations</h2>
+<h3 id="obs-layout">OBS Layout</h3>
+<p>When OBS is open, you will see the main window with controls on the
+left and the multiview monitor on the right.</p>
+<figure>
+<img src="../assets/obs-layout.png" style="width:90.0%"
+alt="OBS main layout" />
+<figcaption aria-hidden="true">OBS main layout</figcaption>
+</figure>
+<h3 id="multiview">Multiview</h3>
+<p>The <strong>Multiview</strong> screen shows all four cameras at once
+on the right monitor. The active (live) camera is highlighted with a
+<strong>red border</strong>.</p>
+<figure>
+<img src="../assets/obs-multiview.png" style="width:80.0%"
+alt="OBS multiview with active camera highlighted" />
+<figcaption aria-hidden="true">OBS multiview with active camera
+highlighted</figcaption>
+</figure>
+<p><strong>To switch the active camera:</strong> Left-click the desired
+camera image in the Multiview window.</p>
+<h4 id="open-multiview-if-not-visible">Open Multiview (if not
+visible)</h4>
+<ol type="1">
+<li>Ensure OBS is open.</li>
+<li>From the menu, select <strong>View → Multiview (Fullscreen) →
+R240HY2</strong>.</li>
+</ol>
+<h3 id="previewing-a-camera">Previewing a Camera</h3>
+<p>The preview panel in OBS shows what the next camera looks like before
+you switch to it live.</p>
+<figure>
+<img src="../assets/obs-preview.png" style="width:70.0%"
+alt="OBS preview panel" />
+<figcaption aria-hidden="true">OBS preview panel</figcaption>
+</figure>
+<h3 id="obs-controls-panel">OBS Controls Panel</h3>
+<p>The controls panel sits in the lower-right area of OBS.</p>
+<figure>
+<img src="../assets/obs-controls.png" style="width:50.0%"
+alt="OBS controls panel" />
+<figcaption aria-hidden="true">OBS controls panel</figcaption>
+</figure>
+<h3 id="ptz-camera-control">PTZ Camera Control</h3>
+<p>Camera position (pan, tilt, zoom) is controlled within OBS using the
+<strong>PTZ Controls</strong> dock.</p>
+<figure>
+<img src="../assets/obs-camera-list.png" style="width:50.0%"
+alt="OBS PTZ camera list" />
+<figcaption aria-hidden="true">OBS PTZ camera list</figcaption>
+</figure>
+<p>The PTZ dock has three sections:</p>
+<ol type="1">
+<li><p><strong>Camera List</strong> — Click once to select a
+camera.</p></li>
+<li><p><strong>Position Presets</strong> — Double-click a preset to move
+the camera to that position.</p></li>
+<li><p><strong>Manual Position</strong> — Use the directional pad to
+pan/tilt; zoom controls are on the right.</p>
+<figure>
+<img src="../assets/obs-move-and-zoom.png" style="width:60.0%"
+alt="OBS camera pan and zoom controls" />
+<figcaption aria-hidden="true">OBS camera pan and zoom
+controls</figcaption>
+</figure></li>
+</ol>
+<h4 id="available-camera-presets">Available Camera Presets</h4>
+<p>Most cameras share the same preset list. The most-used presets are at
+the top:</p>
+<ul>
+<li>Altar (back, front, wide)</li>
+<li>Baptismal font</li>
+<li>Pulpit</li>
+<li>Choir</li>
+<li>Soloist</li>
+<li>Piano</li>
+<li>Praise band (front, wide, lead)</li>
+<li>Communion</li>
+<li>Prayer station</li>
+<li>Congregation</li>
+</ul>
+<figure>
+<img src="../assets/obs-camera-positions.png" style="width:60.0%"
+alt="OBS camera position presets" />
+<figcaption aria-hidden="true">OBS camera position presets</figcaption>
+</figure>
+<blockquote>
+<p><strong>Tip:</strong> A short click on a PTZ control button produces
+a small movement. Holding the button produces a longer, continuous
+movement.</p>
+</blockquote>
+<h3 id="stream-deck">Stream Deck</h3>
+<p>The <strong>Stream Deck Neo</strong> sits on the operator table and
+provides quick one-touch buttons.</p>
+<figure>
+<img src="../assets/stream-deck-active.png" style="width:60.0%"
+alt="Stream Deck active page" />
+<figcaption aria-hidden="true">Stream Deck active page</figcaption>
+</figure>
+<p><strong>Camera page</strong> (press the right-arrow button next to
+the clock to switch to this page):</p>
+<figure>
+<img src="../assets/stream-deck-next.png" style="width:40.0%"
+alt="Stream Deck next page button" />
+<figcaption aria-hidden="true">Stream Deck next page button</figcaption>
+</figure>
+<table>
+<thead>
+<tr>
+<th>Button row</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Top row, button 3</td>
+<td>Toggle <strong>Text</strong> overlay</td>
+</tr>
+<tr>
+<td>Top row, button 4</td>
+<td>Toggle <strong>Slide</strong> overlay</td>
+</tr>
+<tr>
+<td>Top row, button 5</td>
+<td>Toggle <strong>Center</strong> overlay</td>
+</tr>
+<tr>
+<td>Top row, button 6</td>
+<td><strong>Full-screen</strong> slide view</td>
+</tr>
+<tr>
+<td>Bottom row, buttons 1–4</td>
+<td>Switch to Camera 1, 2, 3, or 4</td>
+</tr>
+</tbody>
+</table>
+<h4 id="overlay-types">Overlay Types</h4>
+<p><strong>Text overlay</strong> — lower-third text bar:</p>
+<figure>
+<img src="../assets/overlay-text.png" style="width:70.0%"
+alt="Text overlay example" />
+<figcaption aria-hidden="true">Text overlay example</figcaption>
+</figure>
+<p><strong>Slide overlay</strong> — slides shown in a side panel:</p>
+<figure>
+<img src="../assets/overlay-slide.png" style="width:70.0%"
+alt="Slide overlay example" />
+<figcaption aria-hidden="true">Slide overlay example</figcaption>
+</figure>
+<p><strong>Center overlay</strong> — slides shown in the center:</p>
+<figure>
+<img src="../assets/overlay-center.png" style="width:70.0%"
+alt="Center overlay example" />
+<figcaption aria-hidden="true">Center overlay example</figcaption>
+</figure>
+<p><strong>Full-screen slide view:</strong></p>
+<figure>
+<img src="../assets/overlay-full.png" style="width:70.0%"
+alt="Full screen overlay example" />
+<figcaption aria-hidden="true">Full screen overlay example</figcaption>
+</figure>
+<h2 id="presentation">Presentation</h2>
+<h3 id="presentation-computer">Presentation Computer</h3>
+<p>The Presentation PC runs <strong>Presenter by Worship Tools</strong>,
+which displays lyrics, readings, and videos on the main projection
+screen and the stage confidence monitor.</p>
+<figure>
+<img src="../assets/presentation-power.png" style="width:50.0%"
+alt="Presentation PC power button location" />
+<figcaption aria-hidden="true">Presentation PC power button
+location</figcaption>
+</figure>
+<h3 id="starting-presenter">Starting Presenter</h3>
+<ol type="1">
+<li><p>Open <strong>Presenter</strong> from the taskbar (icon looks like
+a green “P”).</p></li>
+<li><p>If prompted to log in, use: <code>av@allshepherds.org</code>.</p>
+<figure>
+<img src="../assets/presenter.png" style="width:80.0%"
+alt="Presenter home screen" />
+<figcaption aria-hidden="true">Presenter home screen</figcaption>
+</figure></li>
+</ol>
+<h3 id="presenter-layout">Presenter Layout</h3>
+<p>The Presenter window has three main areas:</p>
+<figure>
+<img src="../assets/presenter-layout.png" style="width:80.0%"
+alt="Presenter layout overview" />
+<figcaption aria-hidden="true">Presenter layout overview</figcaption>
+</figure>
+<ul>
+<li><strong>Services list</strong> (left) — Select the service for
+today.</li>
+<li><strong>Cue list</strong> (center) — Each cue is a step in the
+service (hymn, reading, video, etc.).</li>
+<li><strong>Slide preview</strong> (right) — Shows the current
+slide.</li>
+</ul>
+<h3 id="running-a-service">Running a Service</h3>
+<ol type="1">
+<li>Select today’s service from the <strong>Services</strong> list on
+the left.</li>
+<li>Click the <strong>first cue</strong> in the cue list to begin.</li>
+<li>Navigate with the keyboard:
+<ul>
+<li><strong>Right arrow</strong> — next slide (advances to next cue
+after the last slide)</li>
+<li><strong>Left arrow</strong> — previous slide</li>
+<li><strong>Down arrow</strong> — skip to next cue</li>
+<li><strong>Up arrow</strong> — go to previous cue</li>
+</ul></li>
+</ol>
+<h3 id="countdown-timer">Countdown Timer</h3>
+<p>Before the 11:11 service, display a countdown on the screen:</p>
+<ol type="1">
+<li>Press <strong>F6</strong>, or from the top menu select <strong>More
+→ Countdown</strong>.</li>
+<li>From the <strong>Template</strong> dropdown, choose <strong>11:11
+Countdown</strong>.</li>
+<li>Press the <strong>Start</strong> button at the bottom of the dialog,
+then close it.</li>
+</ol>
+<p>The countdown will automatically disappear at 11:11.</p>
+<h3 id="configure-screens">Configure Screens</h3>
+<p>Run this check every startup to confirm slides appear on the correct
+displays.</p>
+<ol type="1">
+<li><p>In Presenter, click the <strong>monitor icon</strong> in the
+top-right corner.</p>
+<figure>
+<img src="../assets/presenter-screen-config-menu.png"
+style="width:40.0%" alt="Screen configuration menu icon" />
+<figcaption aria-hidden="true">Screen configuration menu
+icon</figcaption>
+</figure></li>
+<li><p>Select <strong>Configure</strong> → <strong>Screen
+Configuration</strong>.</p>
+<figure>
+<img src="../assets/presenter-screen-config.png" style="width:70.0%"
+alt="Screen configuration dialog" />
+<figcaption aria-hidden="true">Screen configuration dialog</figcaption>
+</figure></li>
+<li><p>Assign outputs:</p>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Display</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main Audience Output</td>
+<td>Display 3</td>
+<td>Projector</td>
+</tr>
+<tr>
+<td>Stage Display</td>
+<td>Display 1</td>
+<td>Confidence monitor (large TV)</td>
+</tr>
+<tr>
+<td>Broadcast</td>
+<td>Display 2</td>
+<td>Monitor on right (feeds to stream)</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Press <strong>Save</strong> after each assignment.</p></li>
+<li><p>To exit, click a cue in the list — slides will appear on the
+displays.</p></li>
+</ol>
+<h3 id="ndi-screen-capture">NDI Screen Capture</h3>
+<p>NDI Screen Capture sends the presentation output over the network to
+OBS on the Broadcast PC. It should launch automatically from the
+taskbar. If the stream shows a blank slide area, restart NDI Screen
+Capture from the taskbar.</p>
+<figure>
+<img src="../assets/ndi-sc.png" style="width:40.0%"
+alt="NDI Screen Capture icon in taskbar" />
+<figcaption aria-hidden="true">NDI Screen Capture icon in
+taskbar</figcaption>
+</figure>
+<h2 id="streaming">Streaming</h2>
+<h3 id="audio-levels-for-streaming">Audio Levels for Streaming</h3>
+<p>The streaming audio comes from BUS03 on the X32. Use this path to
+adjust streaming audio independently of the sanctuary speakers.</p>
+<h3 id="schedule-a-broadcast">Schedule a Broadcast</h3>
+<p>Do this <strong>before service starts</strong> so the stream is ready
+to go live on time.</p>
+<ol type="1">
+<li><p>In OBS, click <strong>Manage Broadcast</strong>.</p>
+<figure>
+<img src="../assets/obs-manage-broadcast.png" style="width:60.0%"
+alt="OBS Manage Broadcast button" />
+<figcaption aria-hidden="true">OBS Manage Broadcast button</figcaption>
+</figure></li>
+<li><p>In the modal that appears, click the <strong>Create New
+Broadcast</strong> tab.</p></li>
+<li><p>In the <strong>Title</strong> field, enter the date and time of
+the service (e.g., <em>March 22, 2026 — 11:11 AM</em>).</p></li>
+<li><p>Scroll to the bottom and set the date and time of the
+service.</p></li>
+<li><p>Press <strong>Schedule Broadcast</strong>, then press
+<strong>Confirm</strong>.</p></li>
+<li><p>Repeat for each service if there are multiple streams that
+day.</p></li>
+</ol>
+<h3 id="start-the-stream">Start the Stream</h3>
+<ol type="1">
+<li><p>In OBS, click <strong>Manage Broadcast</strong>.</p></li>
+<li><p>Click the <strong>Select Existing Broadcast</strong>
+tab.</p></li>
+<li><p>Select the service from the list.</p></li>
+<li><p>Press <strong>Select Broadcast</strong>.</p>
+<figure>
+<img src="../assets/obs-stream-control.png" style="width:60.0%"
+alt="OBS stream control panel" />
+<figcaption aria-hidden="true">OBS stream control panel</figcaption>
+</figure></li>
+<li><p>Press <strong>Start Streaming</strong>.</p>
+<figure>
+<img src="../assets/obs-stream-start-stop.png" style="width:60.0%"
+alt="OBS start/stop streaming button" />
+<figcaption aria-hidden="true">OBS start/stop streaming
+button</figcaption>
+</figure>
+<blockquote>
+<p><strong>Important:</strong> Confirm you see “LIVE” in the OBS status
+bar at the bottom before walking away.</p>
+</blockquote></li>
+</ol>
+<h3 id="stop-the-stream">Stop the Stream</h3>
+<ol type="1">
+<li>In OBS, press <strong>Stop Streaming</strong>.</li>
+<li>Press <strong>Confirm</strong> in the confirmation dialog.</li>
+</ol>
+<h3 id="obs-audio-monitor">OBS Audio Monitor</h3>
+<p>Use the OBS audio mixer to verify all audio sources are active and at
+healthy levels during the stream.</p>
+<figure>
+<img src="../assets/obs-audio.png" style="width:80.0%"
+alt="OBS audio mixer" />
+<figcaption aria-hidden="true">OBS audio mixer</figcaption>
+</figure>
+<h1 id="system-shutdown">System Shutdown</h1>
+<p>Follow these steps <strong>in order</strong> at the end of each
+service.</p>
+<h2 id="return-microphones">1 — Return Microphones</h2>
+<ul>
+<li>Return the <strong>pastor’s mic pack</strong> to its charger.</li>
+<li>Return the <strong>Orange</strong> handheld mic to the choir loft
+charger.</li>
+<li>Return the <strong>Purple</strong> handheld mic to the baptismal
+font mic stand charger.</li>
+<li>Return all remaining handheld mics to their charging stations.</li>
+</ul>
+<h2 id="power-off-cameras">2 — Power Off Cameras</h2>
+<ol type="1">
+<li><p>On the Stream Deck, navigate to the camera page (right-arrow
+button).</p></li>
+<li><p>Press the <strong>Camera Power Off</strong> button. Cameras will
+pan to face the wall.</p>
+<figure>
+<img src="../assets/stream-deck-previous.png" style="width:40.0%"
+alt="Stream Deck previous page button" />
+<figcaption aria-hidden="true">Stream Deck previous page
+button</figcaption>
+</figure></li>
+</ol>
+<h2 id="close-obs-and-shut-down-broadcast-computer">3 — Close OBS and
+Shut Down Broadcast Computer</h2>
+<ol type="1">
+<li>In OBS, close the application (File → Exit).</li>
+<li>Shut down the Broadcast PC: <strong>Start → Power → Shut
+down</strong>.</li>
+</ol>
+<h2 id="close-presenter-and-shut-down-presentation-computer">4 — Close
+Presenter and Shut Down Presentation Computer</h2>
+<ol type="1">
+<li>Close all open applications in Presenter.</li>
+<li>Power off the <strong>confidence monitor</strong> (large TV above
+the back door) using its remote.</li>
+<li>Power off the <strong>projector</strong> using the Panasonic remote
+— press the <strong>Standby</strong> button <strong>twice</strong>.</li>
+<li>Shut down the Presentation PC: <strong>Start → Power → Shut
+down</strong>.</li>
+</ol>
+<h2 id="power-off-audio-board">5 — Power Off Audio Board</h2>
+<ol type="1">
+<li><p>P Switch the <strong>power toggle</strong> on the Furman
+conditioner to OFF.</p>
+<figure>
+<img src="../assets/system-power-toggle.png" style="width:60.0%"
+alt="Power conditioner power toggle" />
+<figcaption aria-hidden="true">Power conditioner power
+toggle</figcaption>
+</figure></li>
+</ol>
+<h2 id="cover-the-sound-board">6 — Cover the Sound Board</h2>
+<p>Place the protective cover back over the X32 console.</p>
+<h1 id="technical-reference">Technical Reference</h1>
+<p>This section contains detailed configuration tables for
+troubleshooting and system setup. You do not need to memorize these
+during normal operation.</p>
+<h2 id="system-audio-map">System Audio Map</h2>
+<div class="mermaid">
+flowchart LR
+    subgraph local[&quot;Local / Aux Inputs&quot;]
+        l1[&quot;Presentation PC\n(LOC01)&quot;]
+        l2[&quot;Android Device\n(LOC02)&quot;]
+        l3[&quot;iOS / Mobile\n(LOC04)&quot;]
+        l4[&quot;USB Playback\n(LOC03)&quot;]
+        l5[&quot;CD Player\n(AUX05 / AUX06)&quot;]
+    end
+
+    subgraph iems[&quot;In-Ear Monitors (P16)&quot;]
+        p1[&quot;#1 · Praise Vocal 1 Yellow&quot;]
+        p2[&quot;#2 · Praise Vocal 2 Blue&quot;]
+        p3[&quot;#3 · Praise Vocal 3 Green&quot;]
+        p4[&quot;#4 · Praise Vocal 4 Red&quot;]
+        p5[&quot;#5 · Praise Vocal 5 White&quot;]
+        p6[&quot;#6 · Keyboard&quot;]
+        p7[&quot;#7 · E-Guitar&quot;]
+        p8[&quot;#8 · A-Guitar&quot;]
+        p9[&quot;#9 · Bass&quot;]
+        p10[&quot;#10 · Kick Drum&quot;]
+        p11[&quot;#11 · Drums SL + SR&quot;]
+        p12[&quot;#12 · Cajon&quot;]
+        p13[&quot;#13 · Pastor Mics&quot;]
+        p14[&quot;#14 · House Mics&quot;]
+        p15[&quot;#15 · Praise Vocal 6+7&quot;]
+        p16[&quot;#16 · All Devices&quot;]
+    end
+
+    SD16[&quot;SD16\n(Stage)&quot;]
+    SD8_Sac[&quot;SD8\n(Sacristy)&quot;]
+    SD8_Cho[&quot;SD8\n(Choir Loft)&quot;]
+    X32[&quot;Behringer X32&quot;]
+
+    SD16 -- AES50-A --&gt; X32
+    SD8_Sac &amp; SD8_Cho -- AES50-B --&gt; X32
+    l1 &amp; l2 &amp; l3 &amp; l4 &amp; l5 -- Local/Aux --&gt; X32
+    X32 -- AES50-C --&gt; p1 &amp; p2 &amp; p3 &amp; p4 &amp; p5 &amp; p6 &amp; p7 &amp; p8 &amp; p9 &amp; p10 &amp; p11 &amp; p12 &amp; p13 &amp; p14 &amp; p15 &amp; p16
+</div>
+<h2 id="stage-box-device-maps">Stage Box Device Maps</h2>
+<h3 id="sacristy-sd8">Sacristy (SD8)</h3>
+<div class="mermaid">
+flowchart LR
+    subgraph sacristy[&quot;Sacristy&quot;]
+        r1[&quot;B01 · Purple&quot;]
+        r2[&quot;B02 · Praise Vocal 2&quot;]
+        r3[&quot;B03 · Praise Vocal 3&quot;]
+        r4[&quot;B04 · Praise Vocal 4&quot;]
+        r5[&quot;B05 · Praise Vocal 1&quot;]
+        r6[&quot;B06 · Orange&quot;]
+        r7[&quot;B07 · Pastor 1&quot;]
+        r8[&quot;B08 · Pastor 2&quot;]
+    end
+
+    SD8_Sac[&quot;SD8\n(Sacristy)&quot;]
+
+    r1 &amp; r2 &amp; r3 &amp; r4 &amp; r5 &amp; r6 &amp; r7 &amp; r8 --&gt; SD8_Sac
+</div>
+<h3 id="choir-loft-sd8">Choir Loft (SD8)</h3>
+<div class="mermaid">
+flowchart LR
+    subgraph choir[&quot;Choir Loft&quot;]
+        c1[&quot;B09 · Floor 1 Yellow&quot;]
+        c2[&quot;B10 · Floor 2 Blue&quot;]
+        c3[&quot;B11 · Floor 3 Green&quot;]
+        c4[&quot;B12 · Floor 4 Red&quot;]
+        c5[&quot;B13 · Choir SR&quot;]
+        c6[&quot;B14 · Choir SC&quot;]
+        c7[&quot;B15 · Choir SL&quot;]
+        c8[&quot;B16 · Grand Piano&quot;]
+    end
+
+    SD8_Cho[&quot;SD8\n(Choir Loft)&quot;]
+
+    c1 &amp; c2 &amp; c3 &amp; c4 &amp; c5 &amp; c6 &amp; c7 &amp; c8 --&gt; SD8_Cho
+</div>
+<h3 id="stage-sd16">Stage (SD16)</h3>
+<div class="mermaid">
+flowchart LR
+    subgraph stage[&quot;Stage&quot;]
+        s1[&quot;A05 · Praise Vocal 5&quot;]
+        s2[&quot;A06 · Keys&quot;]
+        s3[&quot;A07 · Electric Guitar&quot;]
+        s4[&quot;A08 · Acoustic Guitar&quot;]
+        s5[&quot;A09 · Bass&quot;]
+        s6[&quot;A10 · Kick Drum&quot;]
+        s7[&quot;A11 · SL Drums&quot;]
+        s8[&quot;A12 · SR Drums&quot;]
+        s9[&quot;A13 · Cajon&quot;]
+        s10[&quot;A14 · Audience SL&quot;]
+        s11[&quot;A15 · Pulpit&quot;]
+        s12[&quot;A16 · Praise Vocal 6&quot;]
+    end
+
+    SD16[&quot;SD16\n(Stage)&quot;]
+
+    s1 &amp; s2 &amp; s3 &amp; s4 &amp; s5 &amp; s6 &amp; s7 &amp; s8 &amp; s9 &amp; s10 &amp; s11 &amp; s12 --&gt; SD16
+</div>
+<h2 id="equipment-overview">Equipment Overview</h2>
+<p>The table below lists every piece of equipment in the system with its
+label and role.</p>
+<h3 id="audio-equipment">Audio Equipment</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Label</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Behringer X32</td>
+<td>X32</td>
+<td>Main digital audio mixing console</td>
+</tr>
+<tr>
+<td>Behringer SD16</td>
+<td>SD16</td>
+<td>16-input stage box — Stage (A01–A16)</td>
+</tr>
+<tr>
+<td>Behringer SD8 (×2)</td>
+<td>SD8</td>
+<td>8-input stage boxes — Sacristy (B01–B08) and Choir Loft
+(B09–B16)</td>
+</tr>
+<tr>
+<td>Behringer P16-M (×9)</td>
+<td>P16</td>
+<td>Personal in-ear monitor mixers for musicians</td>
+</tr>
+<tr>
+<td>Crown XTi 6002 Amplifier</td>
+<td>Crown 6002</td>
+<td>Powers sanctuary main speakers</td>
+</tr>
+<tr>
+<td>Crown XTi 1002 Amplifier</td>
+<td>Crown 1002</td>
+<td>Powers gathering space and choir speakers</td>
+</tr>
+<tr>
+<td>JBL CBT-1000 (×2)</td>
+<td>Main Speaker</td>
+<td>Sanctuary main speakers</td>
+</tr>
+<tr>
+<td>JBL CBT50LA-1 (×4)</td>
+<td>Side Speaker</td>
+<td>Narthex and choir speakers</td>
+</tr>
+<tr>
+<td>Shure SLXD24/B87 Wireless Vocal Mic (×6)</td>
+<td>B87</td>
+<td>Handheld wireless vocal microphones</td>
+</tr>
+<tr>
+<td>Shure SLXD14/MX153T Wireless Lavalier (×2)</td>
+<td>MX153T</td>
+<td>Wireless clip-on microphones for pastors</td>
+</tr>
+<tr>
+<td>Shure UA844+SWB Antenna Distribution (×2)</td>
+<td>UA844</td>
+<td>Distributes antenna signal for wireless mics</td>
+</tr>
+<tr>
+<td>Shure SM58 (×4)</td>
+<td>SM58</td>
+<td>Wired vocal microphone</td>
+</tr>
+<tr>
+<td>Shure SM57 (×3)</td>
+<td>SM57</td>
+<td>Wired instrument microphone</td>
+</tr>
+<tr>
+<td>Shure CVO Overhead Condenser (×3)</td>
+<td>CVO</td>
+<td>Overhead choir microphones</td>
+</tr>
+<tr>
+<td>Xvive U45 IEM Wireless Transmitter (×6)</td>
+<td>U45T</td>
+<td>Sends monitor mix to in-ear packs</td>
+</tr>
+<tr>
+<td>Xvive U45 IEM Wireless Receiver (×12)</td>
+<td>U45R</td>
+<td>Wireless in-ear monitor belt packs</td>
+</tr>
+<tr>
+<td>Xvive U2 Wireless Guitar System</td>
+<td>U2</td>
+<td>Wireless guitar transmitter and receiver</td>
+</tr>
+<tr>
+<td>Peavey USB-P Playback Device</td>
+<td>USBP</td>
+<td>USB audio playback</td>
+</tr>
+<tr>
+<td>Radial USB-Pro Direct Box</td>
+<td>USBPro</td>
+<td>Stereo USB audio input</td>
+</tr>
+</tbody>
+</table>
+<h3 id="video-equipment">Video Equipment</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Label</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PTZOptics 20X-NDI Camera (×4)</td>
+<td>20XNDI</td>
+<td>Remote-controlled PTZ cameras over NDI</td>
+</tr>
+<tr>
+<td>Beelink EQR6 Mini PC</td>
+<td>Presentation PC</td>
+<td>Runs Presenter (slides) and NDI Screen Capture</td>
+</tr>
+<tr>
+<td>SkyTech Blaze II Gaming PC</td>
+<td>Broadcast PC</td>
+<td>Runs OBS for live streaming and camera switching</td>
+</tr>
+<tr>
+<td>Panasonic PT-RZ970LBU7 Projector</td>
+<td>Projector</td>
+<td>Projects slides to the main sanctuary screen</td>
+</tr>
+<tr>
+<td>Screen Innovations 165” Fixed Frame</td>
+<td>Screen</td>
+<td>Main projection screen in sanctuary</td>
+</tr>
+<tr>
+<td>Samsung QB98R 98” Display</td>
+<td>Confidence Monitor</td>
+<td>Stage confidence monitor above the back door</td>
+</tr>
+<tr>
+<td>Acer 23.8” Monitor (×4)</td>
+<td>Monitor</td>
+<td>Operator monitors</td>
+</tr>
+<tr>
+<td>Elgato Stream Deck Neo</td>
+<td>Stream Deck</td>
+<td>One-touch camera switching and overlay control</td>
+</tr>
+<tr>
+<td>J-Tech HDMI Extender</td>
+<td>—</td>
+<td>Extends HDMI signal over Cat6 cable</td>
+</tr>
+<tr>
+<td>Wavlink USB-C Quad Monitor Adapter</td>
+<td>—</td>
+<td>Drives multiple monitors from Presentation PC</td>
+</tr>
+<tr>
+<td>Extron DTP HDMI 4K 230 TX</td>
+<td>—</td>
+<td>Transmits HDMI signal to projector over Cat6</td>
+</tr>
+</tbody>
+</table>
+<h2 id="x32-channel-map">X32 Channel Map</h2>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Label</th>
+<th>Source Device</th>
+<th style="text-align: center;">Wireless</th>
+<th style="text-align: center;">Phantom (48V)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CH 01</td>
+<td>Praise Vocal 1 — Yellow</td>
+<td>B05</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 02</td>
+<td>Praise Vocal 2 — Blue</td>
+<td>B02</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 03</td>
+<td>Praise Vocal 3 — Green</td>
+<td>B03</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 04</td>
+<td>Praise Vocal 4 — Red</td>
+<td>B04</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 05</td>
+<td>Praise Vocal 5 — White</td>
+<td>A05</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 06</td>
+<td>Keys</td>
+<td>A06</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 07</td>
+<td>Electric Guitar</td>
+<td>A07</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 08</td>
+<td>Acoustic Guitar</td>
+<td>A08</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 09</td>
+<td>Bass</td>
+<td>A09</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 10</td>
+<td>Kick Drum</td>
+<td>A10</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 11</td>
+<td>Drums SL</td>
+<td>A11</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 12</td>
+<td>Drums SR</td>
+<td>A12</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 13</td>
+<td>Cajon</td>
+<td>A13</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 14</td>
+<td>Praise Vocal 6</td>
+<td>A16</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 15</td>
+<td>Praise Vocal 7</td>
+<td>—</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 16</td>
+<td>Grand Piano</td>
+<td>B16</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 17</td>
+<td>Floor Mic 1 — Yellow</td>
+<td>B09</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 18</td>
+<td>Floor Mic 2 — Blue</td>
+<td>B10</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 19</td>
+<td>Floor Mic 3 — Green</td>
+<td>B11</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 20</td>
+<td>Floor Mic 4 — Red</td>
+<td>B12</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 21</td>
+<td>Pastor Craig</td>
+<td>B07</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 22</td>
+<td>Pastor Wendy</td>
+<td>B08</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 23</td>
+<td>Purple</td>
+<td>B01</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 24</td>
+<td>Orange</td>
+<td>B06</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>CH 25</td>
+<td>Pulpit</td>
+<td>A15</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>CH 26</td>
+<td>Choir SR</td>
+<td>B13</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>CH 27</td>
+<td>Choir SC</td>
+<td>B14</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>CH 28</td>
+<td>Choir SL</td>
+<td>B15</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>CH 31</td>
+<td>Audience SR</td>
+<td>Aux2/Local3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>CH 32</td>
+<td>Audience SL</td>
+<td>A14</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table>
+<h2 id="aux-inputs">Aux Inputs</h2>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Label</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AX 01</td>
+<td>Presentation PC</td>
+<td>Local 01</td>
+</tr>
+<tr>
+<td>AX 02</td>
+<td>Device</td>
+<td>Local 02</td>
+</tr>
+<tr>
+<td>AX 03</td>
+<td>Audience SR</td>
+<td>Local 03</td>
+</tr>
+<tr>
+<td>AX 04</td>
+<td>Mobile</td>
+<td>Local 04</td>
+</tr>
+<tr>
+<td>AX 05</td>
+<td>CD</td>
+<td>AUX 05</td>
+</tr>
+<tr>
+<td>AX 06</td>
+<td>CD</td>
+<td>AUX 06</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bus-sends">Bus Sends</h2>
+<table>
+<thead>
+<tr>
+<th>Bus</th>
+<th>Label</th>
+<th>Source Channels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BUS 01</td>
+<td>Choir</td>
+<td></td>
+</tr>
+<tr>
+<td>BUS 02</td>
+<td>Gathering</td>
+<td></td>
+</tr>
+<tr>
+<td>BUS 03</td>
+<td>Streaming</td>
+<td></td>
+</tr>
+<tr>
+<td>BUS 08</td>
+<td>Drums SL+SR</td>
+<td>CH 11, 12, 13</td>
+</tr>
+<tr>
+<td>BUS 09</td>
+<td>Pastor Mics</td>
+<td>CH 21, 22</td>
+</tr>
+<tr>
+<td>BUS 10</td>
+<td>Other Mics</td>
+<td>CH 17, 18, 19, 20, 23, 24, 25</td>
+</tr>
+<tr>
+<td>BUS 11</td>
+<td>Praise Mics 6 &amp; 7</td>
+<td>CH 14, 15</td>
+</tr>
+<tr>
+<td>BUS 12</td>
+<td>All Devices</td>
+<td>AUX 1, 2, 4, 5, 6, 7, 8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="stage-box-device-map">Stage Box Device Map</h2>
+<p>The X32 receives inputs from three Behringer stage boxes:</p>
+<table>
+<thead>
+<tr>
+<th>Stage Box</th>
+<th>Location</th>
+<th>X32 Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SD16</td>
+<td>Stage</td>
+<td>A01–A16</td>
+</tr>
+<tr>
+<td>SD8 (1)</td>
+<td>Sacristy</td>
+<td>B01–B08</td>
+</tr>
+<tr>
+<td>SD8 (2)</td>
+<td>Choir Loft</td>
+<td>B09–B16</td>
+</tr>
+</tbody>
+</table>
+<p>Full device map:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Stage Box</th>
+<th>Location</th>
+<th>Channel Assignment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A05</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Praise Vocal 5 White</td>
+</tr>
+<tr>
+<td>A06</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Keys</td>
+</tr>
+<tr>
+<td>A07</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Electric Guitar</td>
+</tr>
+<tr>
+<td>A08</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Acoustic Guitar</td>
+</tr>
+<tr>
+<td>A09</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Bass</td>
+</tr>
+<tr>
+<td>A10</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Kick Drum</td>
+</tr>
+<tr>
+<td>A11</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Drums SL</td>
+</tr>
+<tr>
+<td>A12</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Drums SR</td>
+</tr>
+<tr>
+<td>A13</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Cajon</td>
+</tr>
+<tr>
+<td>A14</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Audience SL</td>
+</tr>
+<tr>
+<td>A15</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Pulpit</td>
+</tr>
+<tr>
+<td>A16</td>
+<td>SD16</td>
+<td>Stage</td>
+<td>Praise Vocal 6</td>
+</tr>
+<tr>
+<td>B01</td>
+<td>SD8 — Sacristy</td>
+<td>Sacristy</td>
+<td>Purple</td>
+</tr>
+<tr>
+<td>B02</td>
+<td>SD8 — Sacristy</td>
+<td>Sacristy</td>
+<td>Praise Vocal 2 Blue</td>
+</tr>
+<tr>
+<td>B03</td>
+<td>SD8 — Sacristy</td>
+<td>Sacristy</td>
+<td>Praise Vocal 3 Green</td>
+</tr>
+<tr>
+<td>B04</td>
+<td>SD8 — Sacristy</td>
+<td>Sacristy</td>
+<td>Praise Vocal 4 Red</td>
+</tr>
+<tr>
+<td>B05</td>
+<td>SD8 — Sacristy</td>
+<td>Sacristy</td>
+<td>Praise Vocal 1 Yellow</td>
+</tr>
+<tr>
+<td>B06</td>
+<td>SD8 — Sacristy</td>
+<td>Sacristy</td>
+<td>Orange</td>
+</tr>
+<tr>
+<td>B07</td>
+<td>SD8 — Sacristy</td>
+<td>Sacristy</td>
+<td>Pastor Craig</td>
+</tr>
+<tr>
+<td>B08</td>
+<td>SD8 — Sacristy</td>
+<td>Sacristy</td>
+<td>Pastor Wendy</td>
+</tr>
+<tr>
+<td>B09</td>
+<td>SD8 — Choir Loft</td>
+<td>Choir Loft</td>
+<td>Floor Mic 1 Yellow</td>
+</tr>
+<tr>
+<td>B10</td>
+<td>SD8 — Choir Loft</td>
+<td>Choir Loft</td>
+<td>Floor Mic 2 Blue</td>
+</tr>
+<tr>
+<td>B11</td>
+<td>SD8 — Choir Loft</td>
+<td>Choir Loft</td>
+<td>Floor Mic 3 Green</td>
+</tr>
+<tr>
+<td>B12</td>
+<td>SD8 — Choir Loft</td>
+<td>Choir Loft</td>
+<td>Floor Mic 4 Red</td>
+</tr>
+<tr>
+<td>B13</td>
+<td>SD8 — Choir Loft</td>
+<td>Choir Loft</td>
+<td>Choir SR</td>
+</tr>
+<tr>
+<td>B14</td>
+<td>SD8 — Choir Loft</td>
+<td>Choir Loft</td>
+<td>Choir SC</td>
+</tr>
+<tr>
+<td>B15</td>
+<td>SD8 — Choir Loft</td>
+<td>Choir Loft</td>
+<td>Choir SL</td>
+</tr>
+<tr>
+<td>B16</td>
+<td>SD8 — Choir Loft</td>
+<td>Choir Loft</td>
+<td>Grand Piano</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
