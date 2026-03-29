@@ -44,18 +44,7 @@ Remove the protective cover from the X32 mixing console before touching any cont
    ![Power conditioner with power toggle highlighted](../assets/system-power-toggle.png){width=60%}
 
 3. When the X32 has booted, load the **Service** scene:
-   - Press the **VIEW** button in the **SCENES** section of the X32.
-
-     ![X32 Scenes section with VIEW button highlighted](../assets/x32-scene-view.png){width=60%}
-
-   - Select scene **07 — Service**.
-
-     ![X32 main display showing scene list with GO button](../assets/x32-scene-go.png){width=60%}
-
-   - Press **GO**, then press **Confirm**.
-
-     ![X32 Confirm dialog](../assets/x32-scene-confirm.png){width=60%}
-
+   
    - Bring the **MAIN** fader up to **0 dB** (unity).
 
      ![X32 main fader at unity](../assets/x32-main.png){width=60%}
@@ -166,12 +155,6 @@ bottom-right corner of the X32 console.
 ### Praise Band Channel Strips
 
 The praise band occupies channels 1–13. Use the channel faders to balance individual instruments.
-
-![X32 praise band channels](../assets/x32-praise-band.png){width=80%}
-
-![X32 praise vocals channels](../assets/x32-praise-vocals.png){width=80%}
-
-![X32 piano channel](../assets/x32-piano.png){width=50%}
 
 ### Adjusting Levels During Service
 
@@ -481,20 +464,9 @@ Follow these steps **in order** at the end of each service.
 3. Power off the **projector** using the Panasonic remote — press the **Standby** button **twice**.
 4. Shut down the Presentation PC: **Start → Power → Shut down**.
 
-## 5 — Save the Audio Board Scene and Power Off
+## 5 — Power Off Audio Board
 
-1. Press **VIEW** in the **SCENES** section of the X32.
-
-   ![X32 Scenes VIEW button](../assets/x32-scene-view.png){width=60%}
-
-2. Select scene **07 — Service**.
-3. Press **GO**, then press **Confirm**.
-
-   ![X32 GO button](../assets/x32-scene-go.png){width=60%}
-
-   ![X32 Confirm button](../assets/x32-scene-confirm.png){width=60%}
-
-4. Switch the **power toggle** on the Furman conditioner to OFF.
+1. P Switch the **power toggle** on the Furman conditioner to OFF.
 
    ![Power conditioner power toggle](../assets/system-power-toggle.png){width=60%}
 
