@@ -4,6 +4,15 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+# Pre-render Mermaid charts to PNG
+$mmdDir = Join-Path $PSScriptRoot 'assets\mmd'
+$imgDir = Join-Path $PSScriptRoot 'assets\mmd-img'
+if (-not (Test-Path $imgDir)) { New-Item -Path $imgDir -ItemType Directory | Out-Null }
+Get-ChildItem -Path $mmdDir -Filter '*.mmd' | ForEach-Object {
+    $outPng = Join-Path $imgDir ($_.BaseName + '.png')
+    & mmdc -i $_.FullName -o $outPng -b white
+}
+
 $outputDir = Join-Path $PSScriptRoot 'out'
 if (-not (Test-Path $outputDir)) {
     New-Item -Path $outputDir -ItemType Directory | Out-Null
@@ -34,7 +43,7 @@ $pandocArgs = @(
     '--to', 'pdf',
     '--pdf-engine=xelatex',
     '--metadata', 'title=AV System Operations Guide',
-    '--resource-path=md;assets',
+    '--resource-path=md;assets;assets/mmd-img',
     '-V', 'geometry:paperwidth=5.5in,paperheight=8.5in,top=0.45in,bottom=0.65in,left=0.4in,right=0.4in,includefoot',
     '-V', 'fontsize=10pt',
     '-o', $outputFile

@@ -34,20 +34,17 @@ Follow these steps **in order** at the beginning of each service day.
 
 ## 1 — Uncover the Sound Board
 
-Remove the protective cover from the X32 mixing console before touching any controls.
+Remove the cover from the X32 mixing console.
 
 ## 2 — Power On the Audio System
 
-1. Locate the power conditioner (Furman unit) on the equipment rack.
+1. Locate the power conditioner (Furman unit) on the equipment rack below the X-32 board.
 2. Flip the **power toggle** to the ON position.
 
    ![Power conditioner with power toggle highlighted](../assets/system-power-toggle.png){width=60%}
 
-3. When the X32 has booted, load the **Service** scene:
-   
-   - Bring the **MAIN** fader up to **0 dB** (unity).
-
-     ![X32 main fader at unity](../assets/x32-main.png){width=60%}
+3. When the X32 has booted nmute the **MAIN** and bring the fader up to **0 dB** (unity).
+   ![X32 main fader at unity](../assets/x32-main.png){width=60%}
 
 ## 3 — Power On the Projector
 
@@ -57,7 +54,7 @@ Remove the protective cover from the X32 mixing console before touching any cont
 ## 4 — Power On the Confidence Monitor
 
 1. Use the Samsung remote.
-2. Press the **Power** button on the TV above the back door.
+2. Press the **Power** button on the TV above the main door.
 
 ## 5 — Power On the Presentation Computer
 
@@ -82,13 +79,13 @@ Use the Stream Deck to power on all four cameras:
 
    ![Stream Deck camera power button](../assets/stream-deck-camera-power.png){width=50%}
 
-3. Verify the multiview screen on the broadcast computer shows all four cameras.
+3. Verify the multiview screen on the right monitor for broadcast computer shows all four cameras.
 
    ![OBS multiview showing all four cameras](../assets/obs-multiview.png){width=80%}
 
 ## 8 — Distribute Microphones
 
-- **Pastor's mic pack** — Deliver the designated wireless lavalier to the pastor before service.
+- **Pastor's mic pack** — Place the mic on to the body pack, and put the body pack in the belt popuch. Place the belt pouch onb the counter in the Sacristy.
 - **Handheld mics:**
   - **Orange** mic → choir loft
   - **Purple** mic → mic stand by baptismal font
@@ -483,111 +480,21 @@ You do not need to memorize these during normal operation.
 
 ## System Audio Map
 
-```mermaid
-flowchart LR
-    subgraph local["Local / Aux Inputs"]
-        l1["Presentation PC\n(LOC01)"]
-        l2["Android Device\n(LOC02)"]
-        l3["iOS / Mobile\n(LOC04)"]
-        l4["USB Playback\n(LOC03)"]
-        l5["CD Player\n(AUX05 / AUX06)"]
-    end
-
-    subgraph iems["In-Ear Monitors (P16)"]
-        p1["#1 · Praise Vocal 1 Yellow"]
-        p2["#2 · Praise Vocal 2 Blue"]
-        p3["#3 · Praise Vocal 3 Green"]
-        p4["#4 · Praise Vocal 4 Red"]
-        p5["#5 · Praise Vocal 5 White"]
-        p6["#6 · Keyboard"]
-        p7["#7 · E-Guitar"]
-        p8["#8 · A-Guitar"]
-        p9["#9 · Bass"]
-        p10["#10 · Kick Drum"]
-        p11["#11 · Drums SL + SR"]
-        p12["#12 · Cajon"]
-        p13["#13 · Pastor Mics"]
-        p14["#14 · House Mics"]
-        p15["#15 · Praise Vocal 6+7"]
-        p16["#16 · All Devices"]
-    end
-
-    SD16["SD16\n(Stage)"]
-    SD8_Sac["SD8\n(Sacristy)"]
-    SD8_Cho["SD8\n(Choir Loft)"]
-    X32["Behringer X32"]
-
-    SD16 -- AES50-A --> X32
-    SD8_Sac & SD8_Cho -- AES50-B --> X32
-    l1 & l2 & l3 & l4 & l5 -- Local/Aux --> X32
-    X32 -- AES50-C --> p1 & p2 & p3 & p4 & p5 & p6 & p7 & p8 & p9 & p10 & p11 & p12 & p13 & p14 & p15 & p16
-```
+![System Audio Map](../assets/mmd-img/audio-map.png){width=100%}
 
 ## Stage Box Device Maps
 
 ### Sacristy (SD8)
 
-```mermaid
-flowchart LR
-    subgraph sacristy["Sacristy"]
-        r1["B01 · Purple"]
-        r2["B02 · Praise Vocal 2"]
-        r3["B03 · Praise Vocal 3"]
-        r4["B04 · Praise Vocal 4"]
-        r5["B05 · Praise Vocal 1"]
-        r6["B06 · Orange"]
-        r7["B07 · Pastor 1"]
-        r8["B08 · Pastor 2"]
-    end
-
-    SD8_Sac["SD8\n(Sacristy)"]
-
-    r1 & r2 & r3 & r4 & r5 & r6 & r7 & r8 --> SD8_Sac
-```
+![Sacristy (SD8)](../assets/mmd-img/sd-device-map-sacristy.png){width=70%}
 
 ### Choir Loft (SD8)
 
-```mermaid
-flowchart LR
-    subgraph choir["Choir Loft"]
-        c1["B09 · Floor 1 Yellow"]
-        c2["B10 · Floor 2 Blue"]
-        c3["B11 · Floor 3 Green"]
-        c4["B12 · Floor 4 Red"]
-        c5["B13 · Choir SR"]
-        c6["B14 · Choir SC"]
-        c7["B15 · Choir SL"]
-        c8["B16 · Grand Piano"]
-    end
-
-    SD8_Cho["SD8\n(Choir Loft)"]
-
-    c1 & c2 & c3 & c4 & c5 & c6 & c7 & c8 --> SD8_Cho
-```
+![Choir Loft (SD8)](../assets/mmd-img/sd-device-map-choir.png){width=70%}
 
 ### Stage (SD16)
 
-```mermaid
-flowchart LR
-    subgraph stage["Stage"]
-        s1["A05 · Praise Vocal 5"]
-        s2["A06 · Keys"]
-        s3["A07 · Electric Guitar"]
-        s4["A08 · Acoustic Guitar"]
-        s5["A09 · Bass"]
-        s6["A10 · Kick Drum"]
-        s7["A11 · SL Drums"]
-        s8["A12 · SR Drums"]
-        s9["A13 · Cajon"]
-        s10["A14 · Audience SL"]
-        s11["A15 · Pulpit"]
-        s12["A16 · Praise Vocal 6"]
-    end
-
-    SD16["SD16\n(Stage)"]
-
-    s1 & s2 & s3 & s4 & s5 & s6 & s7 & s8 & s9 & s10 & s11 & s12 --> SD16
-```
+![Stage (SD16)](../assets/mmd-img/sd-device-map-stage.png){width=90%}
 
 ## Equipment Overview
 
